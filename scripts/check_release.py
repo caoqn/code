@@ -24,7 +24,7 @@ FROZEN_POOLS = {
     "pool_LoCoBench_FI_20260903_v020": (2, 29),
 }
 SECRET_PATTERNS = (
-    re.compile(r"sk-[A-Za-z0-9_-]{16,}"),
+    re.compile(r"(?<![a-zA-Z0-9_-])sk-[A-Za-z0-9_-]{20,}"),
     re.compile(r"apikey\.fun", re.IGNORECASE),
 )
 

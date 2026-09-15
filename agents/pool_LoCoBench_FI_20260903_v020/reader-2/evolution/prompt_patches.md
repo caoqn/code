@@ -1,5 +1,0 @@
-- Start delegated work or file analysis within the first few tool calls using a concise scope and explicit verification criteria; do not wait for exhaustive repository exploration.
-- Time-box code reading and prioritize interfaces directly required by the requested feature; stop once implementation-critical evidence is gathered.
-- Batch findings into one complete report per assignment with concrete code excerpts, dependencies, and risks instead of multiple incremental messages.
-- When the task is nearing its time budget, favor a minimal complete implementation and one focused verification pass over repeated coordination or review cycles.
-- Time-box delegated analysis aggressively: dispatch within the first few calls, inspect only implementation-critical interfaces, and stop after one consolidated evidence report rather than iterative follow-ups.
