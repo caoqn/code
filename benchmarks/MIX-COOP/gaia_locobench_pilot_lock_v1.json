@@ -1,0 +1,52 @@
+{
+  "lock_id": "mix-coop-gaia-locobench-v1",
+  "suite_id": "mix-coop-gaia-locobench-v1",
+  "manifest": "benchmarks/MIX-COOP/manifests/mix_coop_gaia_locobench_v1.json",
+  "smoke_manifest": "benchmarks/MIX-COOP/manifests/mix_coop_gaia_locobench_smoke_v1.json",
+  "shared_team": "pool_MIX_COOP",
+  "model": {
+    "name": "gpt-5.6-luna",
+    "temperature": 0.2,
+    "max_tokens": 32768
+  },
+  "protocol": {
+    "evolve": {
+      "gaia": 10,
+      "locobench": 10,
+      "ordering": "GAIA then LoCoBench in each round",
+      "workers": 1,
+      "reflection": true
+    },
+    "test": {
+      "gaia": 40,
+      "locobench": 40,
+      "ordering": "same round-robin order; frozen team",
+      "reflection": false
+    },
+    "rollouts": 1
+  },
+  "native_splits": {
+    "gaia": {
+      "evolve": "train_20",
+      "test": "test_100",
+      "evolve_level_counts": {"1": 3, "2": 4, "3": 3},
+      "test_level_counts": {"1": 15, "2": 20, "3": 5}
+    },
+    "locobench": {
+      "evolve": "python indices 0-4 per category",
+      "test": "python indices 20-39 per category",
+      "categories": ["feature_implementation", "cross_file_refactoring"]
+    }
+  },
+  "metrics": {
+    "gaia": "native exact-match accuracy",
+    "locobench": "native LCBS/5; success iff LCBS >= 3",
+    "cross_suite": "benchmark-level macro success; native scores remain separate"
+  },
+  "environment_policy": {
+    "shared": ["family_catalog", "team_templates", "agent_evolution", "handoff_evolution", "team_evolution"],
+    "native": ["tools", "workspace", "task_construction", "output_contract", "evaluator"],
+    "infrastructure_failures_reported_separately": true
+  },
+  "freeze_note": "Do not change this lock after the first official run; create v2 for protocol changes."
+}

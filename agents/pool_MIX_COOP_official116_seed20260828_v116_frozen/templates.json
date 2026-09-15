@@ -1,0 +1,1147 @@
+{
+  "schema_version": 2,
+  "families": [
+    {
+      "family_id": "family_0a55f6809378",
+      "description": "A coordinated pattern in which one member establishes structural context, another produces the change, an integrator reconciles distributed artifacts and claims, and an independent verifier checks observable postconditions against authoritative evidence. It suits multi-part tasks requiring consistency across several outputs or systems, but is unnecessary for isolated, self-contained work with a single readily verifiable result.",
+      "current_template_id": "tpl_family_0a55f6809378_2d6ecfa8",
+      "handoff_family_id": "hf_family_0a55f6809378",
+      "created_at": "2026-09-04T04:36:40.305367+00:00",
+      "updated_at": "2026-09-04T13:28:41.112530+00:00"
+    },
+    {
+      "family_id": "family_1693c5057c2e",
+      "description": "A focused evidence-extraction and independent-checking collaboration in which one member structures and interprets the provided source while the other recomputes the result and tests the conclusion against the underlying evidence. It is suited to bounded, source-grounded comparison or aggregation tasks where reproducibility and numerical or factual verification matter, but not to work requiring substantial artifact construction or external research.",
+      "current_template_id": "tpl_family_1693c5057c2e_5631202f",
+      "handoff_family_id": "hf_family_1693c5057c2e",
+      "created_at": "2026-09-04T15:26:56.217891+00:00",
+      "updated_at": "2026-09-04T15:26:56.217895+00:00"
+    },
+    {
+      "family_id": "family_1f3879e74591",
+      "description": "A compact evidence-and-checking collaboration in which one member gathers precise, source-grounded facts and another independently validates the resulting claim or calculation. Members complement retrieval with skeptical verification, relying on traceable evidence, explicit uncertainty, and reproducible checks rather than unsupported conclusions. This pattern suits bounded fact-finding and answer-validation tasks where authoritative external material must be interpreted and cross-checked, but not broad implementation or open-ended synthesis.",
+      "current_template_id": "tpl_family_1f3879e74591_5f43c680",
+      "handoff_family_id": "hf_family_1f3879e74591",
+      "created_at": "2026-09-04T03:14:24.271156+00:00",
+      "updated_at": "2026-09-04T03:14:24.271159+00:00"
+    },
+    {
+      "family_id": "family_226a432ddc09",
+      "description": "An evidence-grounded implementation and validation pattern in which external evidence and local structural analysis inform a focused artifact change, while an implementer turns the diagnosis into a deliverable and an independent verifier checks behavior, regressions, and unresolved environmental limits. It is suited to compatibility-sensitive engineering and other tasks requiring both construction and reproducible validation, but is less applicable to purely creative work or simple fact retrieval.",
+      "current_template_id": "tpl_family_226a432ddc09_de608d3b",
+      "handoff_family_id": "hf_family_226a432ddc09",
+      "created_at": "2026-09-04T01:56:16.640620+00:00",
+      "updated_at": "2026-09-04T02:41:51.500916+00:00"
+    },
+    {
+      "family_id": "family_7c7cb524329f",
+      "description": "A focused collaboration pattern in which one member maps the existing structure and dependencies, another makes the localized artifact changes, and a third independently verifies consistency and behavior. The pattern relies on reproducible structural evidence, clear change provenance, and compilation or targeted behavioral checks rather than assumptions. It applies to bounded refactors and similar small-to-medium code changes where understanding, implementation, and independent validation are all useful, but not to work requiring extensive external research or broad system redesign.",
+      "current_template_id": "tpl_family_7c7cb524329f_ffd0d453",
+      "handoff_family_id": "hf_family_7c7cb524329f",
+      "created_at": "2026-09-05T00:04:36.832086+00:00",
+      "updated_at": "2026-09-05T00:04:36.832088+00:00"
+    },
+    {
+      "family_id": "family_af25c04fd6d5",
+      "description": "A compact independent-verification pattern in which one member derives the precise answer and checks it against the governing specification or observable evidence. It suits focused, self-contained investigations where correctness depends on exact interpretation and a direct consistency check, but is not intended for work requiring artifact construction, broad evidence gathering, or multi-party integration.",
+      "current_template_id": "tpl_family_af25c04fd6d5_5debc647",
+      "handoff_family_id": "hf_family_af25c04fd6d5",
+      "created_at": "2026-09-04T15:36:09.946833+00:00",
+      "updated_at": "2026-09-04T15:36:09.946837+00:00"
+    },
+    {
+      "family_id": "family_f39760586acd",
+      "description": "A repository-grounded build-and-validation collaboration in which one member maps structure and dependencies, another produces the change, an integrator reconciles cross-component contracts and keeps the result coherent, and a verifier independently checks behavior against explicit requirements. Evidence comes from inspected artifacts, focused tests, and end-to-end consistency checks rather than assumptions; this pattern fits multi-surface software changes and other deliverables where integration risk matters, but is unnecessary for isolated edits or purely exploratory analysis.",
+      "current_template_id": "tpl_family_f39760586acd_22edd9cf",
+      "handoff_family_id": "hf_family_f39760586acd",
+      "created_at": "2026-09-04T01:47:57.461007+00:00",
+      "updated_at": "2026-09-04T16:35:22.332530+00:00"
+    }
+  ],
+  "templates": [
+    {
+      "template_id": "tpl_family_0a55f6809378_2d6ecfa8",
+      "family_id": "family_0a55f6809378",
+      "version": 2,
+      "members": [
+        {
+          "agent_id": "context_analyst",
+          "role": "context_analyst"
+        },
+        {
+          "agent_id": "implementer",
+          "role": "implementer"
+        },
+        {
+          "agent_id": "verifier",
+          "role": "verifier"
+        },
+        {
+          "agent_id": "integrator",
+          "role": "integrator"
+        }
+      ],
+      "status": "active",
+      "version_history": [
+        {
+          "version": 1,
+          "members": [
+            {
+              "agent_id": "context_analyst",
+              "role": "context_analyst"
+            },
+            {
+              "agent_id": "implementer",
+              "role": "implementer"
+            },
+            {
+              "agent_id": "verifier",
+              "role": "verifier"
+            }
+          ],
+          "task_id": "case-evolve-057",
+          "reason": "Refine the existing family by adding a non-redundant reconciliation role; retain the historically supported members rather than removing them after mixed outcomes.",
+          "family_description": "A structured evidence-to-artifact collaboration in which one member establishes the source context, another produces the requested deliverable, and an independent member verifies completeness, consistency, and external postconditions. It is supported by reproducible source evidence, explicit cross-checks, and independent validation rather than unverified claims. This pattern applies to bounded tasks that transform local or provided inputs into consequential outputs requiring auditability, but not to open-ended work dominated by external research or sustained integration across many independently produced artifacts.",
+          "changed_at": "2026-09-04T13:28:41.112505+00:00"
+        }
+      ],
+      "evidence_task_ids": [
+        "case-evolve-016",
+        "case-evolve-020",
+        "case-evolve-027",
+        "case-evolve-047",
+        "case-evolve-057",
+        "case-evolve-066",
+        "case-evolve-084",
+        "case-evolve-089",
+        "case-evolve-092",
+        "case-evolve-094",
+        "case-evolve-096",
+        "case-evolve-102",
+        "case-evolve-104",
+        "case-evolve-105",
+        "case-evolve-113"
+      ],
+      "successful_task_ids": [
+        "case-evolve-016",
+        "case-evolve-020",
+        "case-evolve-084",
+        "case-evolve-089",
+        "case-evolve-094",
+        "case-evolve-096",
+        "case-evolve-104",
+        "case-evolve-105"
+      ],
+      "failed_task_ids": [
+        "case-evolve-027",
+        "case-evolve-047",
+        "case-evolve-057",
+        "case-evolve-066",
+        "case-evolve-092",
+        "case-evolve-102",
+        "case-evolve-113"
+      ],
+      "task_member_evidence": {
+        "case-evolve-016": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-020": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-027": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-047": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-057": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-066": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-084": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-089": [
+          "context_analyst",
+          "implementer",
+          "verifier",
+          "integrator"
+        ],
+        "case-evolve-092": [
+          "context_analyst",
+          "implementer",
+          "verifier",
+          "integrator"
+        ],
+        "case-evolve-094": [
+          "context_analyst",
+          "implementer",
+          "verifier",
+          "integrator"
+        ],
+        "case-evolve-096": [
+          "context_analyst",
+          "implementer",
+          "verifier",
+          "integrator"
+        ],
+        "case-evolve-102": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-104": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-105": [
+          "context_analyst",
+          "verifier",
+          "implementer"
+        ],
+        "case-evolve-113": [
+          "context_analyst",
+          "implementer",
+          "verifier",
+          "integrator"
+        ]
+      },
+      "created_at": "2026-09-04T04:36:40.305326+00:00",
+      "updated_at": "2026-09-04T13:28:41.112530+00:00"
+    },
+    {
+      "template_id": "tpl_family_1693c5057c2e_5631202f",
+      "family_id": "family_1693c5057c2e",
+      "version": 1,
+      "members": [
+        {
+          "agent_id": "context_analyst",
+          "role": "context_analyst"
+        },
+        {
+          "agent_id": "verifier",
+          "role": "verifier"
+        }
+      ],
+      "status": "active",
+      "version_history": [],
+      "evidence_task_ids": [
+        "case-evolve-069"
+      ],
+      "successful_task_ids": [
+        "case-evolve-069"
+      ],
+      "failed_task_ids": [],
+      "task_member_evidence": {
+        "case-evolve-069": [
+          "context_analyst",
+          "verifier"
+        ]
+      },
+      "created_at": "2026-09-04T15:26:56.217836+00:00",
+      "updated_at": "2026-09-04T15:26:56.217853+00:00"
+    },
+    {
+      "template_id": "tpl_family_1f3879e74591_5f43c680",
+      "family_id": "family_1f3879e74591",
+      "version": 1,
+      "members": [
+        {
+          "agent_id": "researcher",
+          "role": "evidence_researcher"
+        },
+        {
+          "agent_id": "verifier",
+          "role": "verifier"
+        }
+      ],
+      "status": "active",
+      "version_history": [],
+      "evidence_task_ids": [
+        "case-evolve-009",
+        "case-evolve-013",
+        "case-evolve-017",
+        "case-evolve-036",
+        "case-evolve-043",
+        "case-evolve-044",
+        "case-evolve-055",
+        "case-evolve-058",
+        "case-evolve-059",
+        "case-evolve-061",
+        "case-evolve-063",
+        "case-evolve-078",
+        "case-evolve-083",
+        "case-evolve-098"
+      ],
+      "successful_task_ids": [
+        "case-evolve-009",
+        "case-evolve-013",
+        "case-evolve-036",
+        "case-evolve-043",
+        "case-evolve-044",
+        "case-evolve-055",
+        "case-evolve-061",
+        "case-evolve-078",
+        "case-evolve-083"
+      ],
+      "failed_task_ids": [
+        "case-evolve-017",
+        "case-evolve-058",
+        "case-evolve-059",
+        "case-evolve-063",
+        "case-evolve-098"
+      ],
+      "task_member_evidence": {
+        "case-evolve-009": [
+          "researcher",
+          "verifier"
+        ],
+        "case-evolve-013": [
+          "researcher",
+          "verifier"
+        ],
+        "case-evolve-017": [
+          "researcher",
+          "verifier"
+        ],
+        "case-evolve-036": [
+          "researcher",
+          "verifier"
+        ],
+        "case-evolve-043": [
+          "researcher",
+          "verifier"
+        ],
+        "case-evolve-044": [
+          "researcher",
+          "verifier"
+        ],
+        "case-evolve-055": [
+          "researcher",
+          "verifier"
+        ],
+        "case-evolve-058": [
+          "researcher",
+          "verifier"
+        ],
+        "case-evolve-059": [
+          "researcher",
+          "verifier"
+        ],
+        "case-evolve-061": [
+          "researcher",
+          "verifier"
+        ],
+        "case-evolve-063": [
+          "researcher",
+          "verifier"
+        ],
+        "case-evolve-078": [
+          "researcher",
+          "verifier"
+        ],
+        "case-evolve-083": [
+          "researcher",
+          "verifier"
+        ],
+        "case-evolve-098": [
+          "researcher",
+          "verifier"
+        ]
+      },
+      "created_at": "2026-09-04T03:14:24.271080+00:00",
+      "updated_at": "2026-09-04T03:14:24.271114+00:00"
+    },
+    {
+      "template_id": "tpl_family_226a432ddc09_de608d3b",
+      "family_id": "family_226a432ddc09",
+      "version": 3,
+      "members": [
+        {
+          "agent_id": "researcher",
+          "role": "evidence_researcher"
+        },
+        {
+          "agent_id": "context_analyst",
+          "role": "context_analyst"
+        },
+        {
+          "agent_id": "implementer",
+          "role": "implementer"
+        },
+        {
+          "agent_id": "verifier",
+          "role": "verifier"
+        }
+      ],
+      "status": "active",
+      "version_history": [
+        {
+          "version": 1,
+          "members": [
+            {
+              "agent_id": "researcher",
+              "role": "evidence_researcher"
+            },
+            {
+              "agent_id": "verifier",
+              "role": "verifier"
+            }
+          ],
+          "task_id": "case-evolve-005",
+          "reason": "The prior team has successful historical support and should be preserved, but the failed run exposed a missing implementation role: verification alone produced a broadly passing change while the required behavior remained unaddressed. Adding an implementer strengthens the reusable pattern without removing either established member.",
+          "family_description": "A source-based investigation pattern in which one member gathers precise, provenance-backed evidence and another independently cross-checks claims and reconciles discrepancies. It suits tasks requiring answers assembled from multiple external references, with conclusions grounded in traceable evidence and explicit verification; it is less applicable when the work is primarily artifact construction or implementation.",
+          "changed_at": "2026-09-04T02:33:12.027923+00:00"
+        },
+        {
+          "version": 2,
+          "members": [
+            {
+              "agent_id": "researcher",
+              "role": "evidence_researcher"
+            },
+            {
+              "agent_id": "implementer",
+              "role": "implementer"
+            },
+            {
+              "agent_id": "verifier",
+              "role": "verifier"
+            }
+          ],
+          "task_id": "case-evolve-006",
+          "reason": "The current run demonstrates that implementation and verification alone did not reliably establish the required behavior: the targeted compatibility cases failed, broad regressions appeared, and an unavailable runtime limited validation. The reusable pattern should therefore add a context-analysis role to trace dependency and environment-sensitive behavior before implementation, while retaining the historically supported researcher, implementer, and verifier; there is no evidence that any existing member is persistently mismatched or redundant.",
+          "family_description": "A collaborative pattern combining authoritative evidence gathering, direct artifact modification, and independent verification. The members complement one another by separating factual grounding from implementation and from objective checks, with conclusions supported by reproducible evidence, regression coverage, and explicit uncertainty. It applies to compatibility, maintenance, and other change-oriented investigations where a validated artifact is required, but not to purely advisory analysis with no artifact to modify.",
+          "changed_at": "2026-09-04T02:41:51.500874+00:00"
+        }
+      ],
+      "evidence_task_ids": [
+        "case-evolve-001",
+        "case-evolve-005",
+        "case-evolve-006",
+        "case-evolve-022",
+        "case-evolve-030",
+        "case-evolve-037",
+        "case-evolve-040",
+        "case-evolve-046",
+        "case-evolve-048",
+        "case-evolve-060",
+        "case-evolve-073",
+        "case-evolve-103"
+      ],
+      "successful_task_ids": [
+        "case-evolve-001",
+        "case-evolve-022",
+        "case-evolve-037",
+        "case-evolve-060"
+      ],
+      "failed_task_ids": [
+        "case-evolve-005",
+        "case-evolve-006",
+        "case-evolve-030",
+        "case-evolve-040",
+        "case-evolve-046",
+        "case-evolve-048",
+        "case-evolve-073",
+        "case-evolve-103"
+      ],
+      "task_member_evidence": {
+        "case-evolve-001": [
+          "researcher",
+          "verifier"
+        ],
+        "case-evolve-005": [
+          "verifier"
+        ],
+        "case-evolve-006": [
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-022": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-030": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-037": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-040": [
+          "implementer",
+          "context_analyst",
+          "verifier"
+        ],
+        "case-evolve-046": [
+          "context_analyst",
+          "implementer",
+          "verifier",
+          "researcher"
+        ],
+        "case-evolve-048": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-060": [
+          "context_analyst",
+          "researcher",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-073": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-103": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ]
+      },
+      "created_at": "2026-09-04T01:56:16.640559+00:00",
+      "updated_at": "2026-09-04T02:41:51.500916+00:00"
+    },
+    {
+      "template_id": "tpl_family_7c7cb524329f_ffd0d453",
+      "family_id": "family_7c7cb524329f",
+      "version": 1,
+      "members": [
+        {
+          "agent_id": "context_analyst",
+          "role": "context_analyst"
+        },
+        {
+          "agent_id": "implementer",
+          "role": "implementer"
+        },
+        {
+          "agent_id": "verifier",
+          "role": "verifier"
+        }
+      ],
+      "status": "active",
+      "version_history": [],
+      "evidence_task_ids": [
+        "case-evolve-115"
+      ],
+      "successful_task_ids": [
+        "case-evolve-115"
+      ],
+      "failed_task_ids": [],
+      "task_member_evidence": {
+        "case-evolve-115": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ]
+      },
+      "created_at": "2026-09-05T00:04:36.832045+00:00",
+      "updated_at": "2026-09-05T00:04:36.832062+00:00"
+    },
+    {
+      "template_id": "tpl_family_af25c04fd6d5_5debc647",
+      "family_id": "family_af25c04fd6d5",
+      "version": 1,
+      "members": [
+        {
+          "agent_id": "verifier",
+          "role": "verifier"
+        }
+      ],
+      "status": "active",
+      "version_history": [],
+      "evidence_task_ids": [
+        "case-evolve-070",
+        "case-evolve-076",
+        "case-evolve-108"
+      ],
+      "successful_task_ids": [
+        "case-evolve-070",
+        "case-evolve-076",
+        "case-evolve-108"
+      ],
+      "failed_task_ids": [],
+      "task_member_evidence": {
+        "case-evolve-070": [
+          "verifier"
+        ],
+        "case-evolve-076": [
+          "verifier"
+        ],
+        "case-evolve-108": [
+          "verifier"
+        ]
+      },
+      "created_at": "2026-09-04T15:36:09.946783+00:00",
+      "updated_at": "2026-09-04T15:36:09.946805+00:00"
+    },
+    {
+      "template_id": "tpl_family_f39760586acd_22edd9cf",
+      "family_id": "family_f39760586acd",
+      "version": 2,
+      "members": [
+        {
+          "agent_id": "context_analyst",
+          "role": "context_analyst"
+        },
+        {
+          "agent_id": "implementer",
+          "role": "implementer"
+        },
+        {
+          "agent_id": "verifier",
+          "role": "verifier"
+        },
+        {
+          "agent_id": "integrator",
+          "role": "integrator"
+        }
+      ],
+      "status": "active",
+      "version_history": [
+        {
+          "version": 1,
+          "members": [
+            {
+              "agent_id": "context_analyst",
+              "role": "context_analyst"
+            },
+            {
+              "agent_id": "implementer",
+              "role": "implementer"
+            },
+            {
+              "agent_id": "verifier",
+              "role": "verifier"
+            }
+          ],
+          "task_id": "case-evolve-077",
+          "reason": "The current pattern has strong historical support and no member is persistently mismatched or redundant, so the existing three members should be retained. The present failure exposed a cross-artifact consistency gap: the implementation compiled and had smoke evidence, yet scored poorly on functional coverage and scope discipline across models, ports, service, adapter, API, tests, and documentation. Adding the available integrator is a targeted refinement for reconciliation of broad changes, not a replacement of the established roles.",
+          "family_description": "A compact code-maintenance collaboration in which one member maps the existing structure and dependencies, another makes the cohesive implementation changes, and an independent verifier checks compilation, preserved behavior, and targeted edge cases. It is suited to localized cross-file refactoring and similar repository changes with clear, testable postconditions, but not to work dominated by external research or broad multi-source integration.",
+          "changed_at": "2026-09-04T16:35:22.332514+00:00"
+        }
+      ],
+      "evidence_task_ids": [
+        "case-evolve-000",
+        "case-evolve-002",
+        "case-evolve-003",
+        "case-evolve-004",
+        "case-evolve-007",
+        "case-evolve-010",
+        "case-evolve-011",
+        "case-evolve-012",
+        "case-evolve-014",
+        "case-evolve-015",
+        "case-evolve-018",
+        "case-evolve-019",
+        "case-evolve-021",
+        "case-evolve-023",
+        "case-evolve-024",
+        "case-evolve-025",
+        "case-evolve-026",
+        "case-evolve-028",
+        "case-evolve-029",
+        "case-evolve-031",
+        "case-evolve-032",
+        "case-evolve-033",
+        "case-evolve-034",
+        "case-evolve-035",
+        "case-evolve-038",
+        "case-evolve-039",
+        "case-evolve-041",
+        "case-evolve-042",
+        "case-evolve-045",
+        "case-evolve-049",
+        "case-evolve-050",
+        "case-evolve-051",
+        "case-evolve-052",
+        "case-evolve-053",
+        "case-evolve-054",
+        "case-evolve-056",
+        "case-evolve-062",
+        "case-evolve-064",
+        "case-evolve-065",
+        "case-evolve-067",
+        "case-evolve-068",
+        "case-evolve-071",
+        "case-evolve-072",
+        "case-evolve-074",
+        "case-evolve-075",
+        "case-evolve-077",
+        "case-evolve-079",
+        "case-evolve-080",
+        "case-evolve-081",
+        "case-evolve-082",
+        "case-evolve-085",
+        "case-evolve-086",
+        "case-evolve-087",
+        "case-evolve-088",
+        "case-evolve-090",
+        "case-evolve-091",
+        "case-evolve-093",
+        "case-evolve-095",
+        "case-evolve-097",
+        "case-evolve-099",
+        "case-evolve-100",
+        "case-evolve-101",
+        "case-evolve-106",
+        "case-evolve-107",
+        "case-evolve-109",
+        "case-evolve-110",
+        "case-evolve-111",
+        "case-evolve-112",
+        "case-evolve-114"
+      ],
+      "successful_task_ids": [
+        "case-evolve-000",
+        "case-evolve-002",
+        "case-evolve-010",
+        "case-evolve-011",
+        "case-evolve-012",
+        "case-evolve-015",
+        "case-evolve-018",
+        "case-evolve-019",
+        "case-evolve-023",
+        "case-evolve-025",
+        "case-evolve-026",
+        "case-evolve-028",
+        "case-evolve-031",
+        "case-evolve-032",
+        "case-evolve-034",
+        "case-evolve-035",
+        "case-evolve-038",
+        "case-evolve-039",
+        "case-evolve-041",
+        "case-evolve-042",
+        "case-evolve-045",
+        "case-evolve-050",
+        "case-evolve-051",
+        "case-evolve-052",
+        "case-evolve-053",
+        "case-evolve-056",
+        "case-evolve-065",
+        "case-evolve-067",
+        "case-evolve-068",
+        "case-evolve-071",
+        "case-evolve-079",
+        "case-evolve-080",
+        "case-evolve-081",
+        "case-evolve-082",
+        "case-evolve-085",
+        "case-evolve-086",
+        "case-evolve-087",
+        "case-evolve-088",
+        "case-evolve-090",
+        "case-evolve-091",
+        "case-evolve-093",
+        "case-evolve-095",
+        "case-evolve-097",
+        "case-evolve-099",
+        "case-evolve-100",
+        "case-evolve-106",
+        "case-evolve-107",
+        "case-evolve-109",
+        "case-evolve-110",
+        "case-evolve-111",
+        "case-evolve-114"
+      ],
+      "failed_task_ids": [
+        "case-evolve-003",
+        "case-evolve-004",
+        "case-evolve-007",
+        "case-evolve-014",
+        "case-evolve-021",
+        "case-evolve-024",
+        "case-evolve-029",
+        "case-evolve-033",
+        "case-evolve-049",
+        "case-evolve-054",
+        "case-evolve-062",
+        "case-evolve-064",
+        "case-evolve-072",
+        "case-evolve-074",
+        "case-evolve-075",
+        "case-evolve-077",
+        "case-evolve-101",
+        "case-evolve-112"
+      ],
+      "task_member_evidence": {
+        "case-evolve-000": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-002": [
+          "implementer",
+          "context_analyst",
+          "verifier"
+        ],
+        "case-evolve-003": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-004": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-007": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-010": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-011": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-012": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-014": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-015": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-018": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-019": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-021": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-023": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-024": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-025": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-026": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-028": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-029": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-031": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-032": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-033": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-034": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-035": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-038": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-039": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-041": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-042": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-045": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-049": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-050": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-051": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-052": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-053": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-054": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-056": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-062": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-064": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-065": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-067": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-068": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-071": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-072": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-074": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-075": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-077": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-079": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-080": [
+          "context_analyst",
+          "implementer",
+          "verifier",
+          "integrator"
+        ],
+        "case-evolve-081": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-082": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-085": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-086": [
+          "context_analyst",
+          "implementer",
+          "verifier",
+          "integrator"
+        ],
+        "case-evolve-087": [
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-088": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-090": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-091": [
+          "implementer",
+          "context_analyst"
+        ],
+        "case-evolve-093": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-095": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-097": [
+          "context_analyst",
+          "implementer",
+          "verifier",
+          "integrator"
+        ],
+        "case-evolve-099": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-100": [
+          "context_analyst",
+          "implementer",
+          "verifier",
+          "integrator"
+        ],
+        "case-evolve-101": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-106": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-107": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-109": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-110": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ],
+        "case-evolve-111": [
+          "context_analyst",
+          "implementer",
+          "verifier",
+          "integrator"
+        ],
+        "case-evolve-112": [
+          "context_analyst",
+          "implementer",
+          "verifier",
+          "integrator"
+        ],
+        "case-evolve-114": [
+          "context_analyst",
+          "implementer",
+          "verifier"
+        ]
+      },
+      "created_at": "2026-09-04T01:47:57.460964+00:00",
+      "updated_at": "2026-09-04T16:35:22.332530+00:00"
+    }
+  ]
+}

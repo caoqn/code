@@ -1,0 +1,1 @@
+- When answering document-based qualification/counting questions, transcribe every requirement verbatim, define how compound requirements (such as degree level plus field) are counted before evaluating rows, and independently verify the final tally with a reproducible per-row missing-criteria table.

@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "suite_id": "mix-coop-loca2-contract-v2-seed20260829",
+  "active_benchmarks": [
+    "locabench"
+  ],
+  "description": "Two-case LOCA evolution smoke on the cold-start MIX-COOP shared pool with the v2 native contract and execution policy.",
+  "ordering": {
+    "strategy": "stratified_round_robin",
+    "seed": 20260829,
+    "round_unit": "one task per source benchmark",
+    "shuffle_within_round": false,
+    "shuffle_scope": "evolve",
+    "materialized_order": true,
+    "order_hash": "625f72e851771b1bc48828435ca685c0b67ce2404cf974a10cd81011a7711ef4"
+  },
+  "shared_evolution": {
+    "mode": "single_team_workspace",
+    "team_name": "pool_MIX_COOP",
+    "state_root": "agents/pool_MIX_COOP",
+    "require_common_agent_namespace": true,
+    "shared_artifacts": [
+      "templates.json",
+      "handoff_rules.json",
+      "constitution.md",
+      "pool.yaml",
+      "*/evolution/prompt_patches.md",
+      "*/evolution/teammate_profiles.yaml",
+      "*/skills/**"
+    ],
+    "evolution_policy": {
+      "evolve_phase": "sequential_updates_after_each_successfully_evaluated_task",
+      "test_phase": "frozen_read_only_snapshot"
+    }
+  },
+  "isolation_policy": {
+    "selector_visible_fields": [
+      "native_full_task",
+      "normalized_collaboration_evidence",
+      "family_catalog"
+    ],
+    "selector_hidden_fields": [
+      "mix_task_id",
+      "source_benchmark",
+      "source_split",
+      "source_task_id",
+      "source_index",
+      "adapter_module",
+      "native_evaluator",
+      "hidden_annotations"
+    ],
+    "native_components": [
+      "tool_environment",
+      "task_construction",
+      "output_contract",
+      "artifact_collection",
+      "evaluator"
+    ],
+    "score_policy": "retain_native_score_and_compute cross-suite metrics only during aggregation"
+  },
+  "benchmark_bindings": {
+    "locabench": {
+      "adapter_module": "benchmarks.adapter_locabench",
+      "adapter_class": "LOCABenchAdapter",
+      "task_construction": "LOCABenchAdapter.build_task",
+      "native_environment": "per-case LOCA MCP services and isolated local_db workspace",
+      "execution_policy": "stateful_service_operations",
+      "execution_policy_version": "2",
+      "output_contract": "locabench_completion_summary",
+      "submission_type": "verified_environment_state_plus_completion_summary",
+      "native_evaluator": "LOCABenchAdapter.evaluate",
+      "native_allowed_tools": [
+        "read_file",
+        "write_file",
+        "bash",
+        "loca_mcp"
+      ]
+    }
+  },
+  "tasks": [
+    {
+      "mix_task_id": "mix-loca2-evolve-seed102",
+      "phase": "evolve",
+      "order": 0,
+      "source": {
+        "benchmark": "locabench",
+        "split": "evolve_96k",
+        "task_id": "ApplyPhDEmailS2LEnv_seed102",
+        "source_index": 1,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [],
+        "difficulty": "",
+        "notes": "Two-case native-contract validation run."
+      }
+    },
+    {
+      "mix_task_id": "mix-loca2-evolve-seed101",
+      "phase": "evolve",
+      "order": 1,
+      "source": {
+        "benchmark": "locabench",
+        "split": "evolve_96k",
+        "task_id": "ApplyPhDEmailS2LEnv_seed101",
+        "source_index": 0,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [],
+        "difficulty": "",
+        "notes": "Two-case native-contract validation run."
+      }
+    },
+    {
+      "mix_task_id": "mix-loca2-test-placeholder",
+      "phase": "test",
+      "order": 0,
+      "enabled": false,
+      "source": {
+        "benchmark": "locabench",
+        "split": "128k",
+        "task_id": "CanvasArrangeExamS2LEnv_seed42",
+        "source_index": 0,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [],
+        "difficulty": "",
+        "notes": "Disabled placeholder required by the mixed-manifest phase schema; this run executes evolve only."
+      }
+    }
+  ]
+}

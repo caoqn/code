@@ -1,0 +1,3 @@
+- For stochastic mechanism problems, validate any guessed recurrence against exact state-based computation and explicitly handle boundary/termination states before communicating the maximizing candidate.
+- For time-bounded research tasks, dispatch concrete subtasks within the first few actions, time-box exploratory browsing, and pivot to synthesis once each specialist has enough evidence; avoid repeated requests or broad searches after a plausible result is available.
+- For a requested calculation tied to a named historical or primary-source equation, do not label a canonical modern formula as confirmed until the exact source equation and the variable-to-data mapping have been verified.

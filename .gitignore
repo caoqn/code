@@ -1,0 +1,17 @@
+.venv*/
+.git/
+__pycache__/
+.pytest_cache/
+.DS_Store
+*.pyc
+*.env
+*.env.*
+apiconfig/
+runs/
+logs/
+sessions/
+results/
+*-results/
+admin_credentials.txt
+*_credentials.txt
+*.log

@@ -1,0 +1,88 @@
+developer:
+  communication_style: Concise implementation updates with explicit file lists and
+    cleanup status.
+  notes:
+  - Works effectively with verifier feedback to resolve artifact hygiene issues before
+    packaging.
+  reliability: high
+  strengths:
+  - Implements requested multi-file features and reports artifact locations clearly.
+  - Responds promptly to verification feedback and performs final cleanup.
+  - Maintains compatibility when consolidating duplicate modules.
+  weaknesses: []
+planner:
+  communication_style: Brief, direct status updates centered on deliverables, file
+    coverage, and verification outcomes.
+  notes:
+  - Successfully relayed the completed implementation and validation state for final
+    reporting.
+  - Quickly consolidated artifact lists and validation outcomes for final reporting.
+  - Reliably relays implementation and validation state for final reporting.
+  - Keeps coordination focused on deliverables and verification outcomes.
+  - Keeps coordination focused and responds promptly to targeted evidence requests.
+  reliability: high
+  strengths:
+  - Provides concise, actionable implementation and verification summaries.
+  - Coordinates solution completion effectively and tracks required output details.
+  - Consolidates artifact lists and requirement coverage into clear final-reporting
+    input.
+  - Consolidates artifact lists and validation outcomes into clear final-reporting
+    input.
+  - Communicates exact file paths and clearly distinguishes static checks from runtime
+    limitations.
+  weaknesses:
+  - Could provide more explicit evidence references when summarizing verification.
+solution_verifier:
+  communication_style: Concise, evidence-oriented confirmations with explicit status
+    details.
+  notes:
+  - Efficiently confirmed implementation scenarios and compile success without unnecessary
+    exploration.
+  - Verification reports are useful for separating static checks from unexecuted tests.
+  - Clearly separated contract inspection, syntax compilation, runtime test status,
+    and artifact cleanliness.
+  - Explicitly identified missing external modules as a runtime caveat rather than
+    overstating verification.
+  - Responds promptly to requests for a canonical verification report.
+  - Keeps verification scope aligned with the available evidence and clearly notes
+    when tests are absent.
+  - Keeps verification scope aligned with available evidence and flags cleanup or
+    cosmetic issues separately.
+  - Explicitly identifies environmental caveats or unexecuted tests rather than overstating
+    verification.
+  - Keeps verification scope aligned with available evidence.
+  - Responds promptly to targeted verification requests and provides artifact cleanliness
+    status.
+  - Independently checks contracts, routes, persistence behavior, and compatibility
+    concerns without overstating runtime confidence.
+  - Responds promptly to targeted requests and provides a single authoritative verification
+    status.
+  - Flags unavailable dependencies or unexecuted tests without overstating confidence.
+  - Responds promptly to targeted requests for authoritative verification.
+  - Clearly identifies untested edge cases and distinguishes them from passing static
+    checks.
+  reliability: high
+  strengths:
+  - Performs focused verification of file presence, compilation, and requirement coverage.
+  - Reports validation outcomes concisely and distinguishes artifact cleanliness issues.
+  - Reports validation outcomes concisely and distinguishes static checks from unexecuted
+    tests.
+  - Produces canonical artifact-and-verification reports suitable for evidence-grounded
+    summaries.
+  - Clearly separates static checks, runtime test status, and contextual caveats.
+  - Clearly separates contract inspection, syntax compilation, runtime test status,
+    and artifact cleanliness.
+  - Explicitly identifies environmental caveats without overstating verification.
+  - Produces concise, evidence-oriented reports suitable for final summaries.
+  - Produces concise canonical reports separating static checks, runtime test status,
+    and environmental caveats.
+  - Explicitly flags unavailable dependencies or unexecuted tests without overstating
+    confidence.
+  - Clearly separates static checks, runtime test status, and environmental caveats.
+  - Produces concise canonical reports suitable for evidence-grounded summaries.
+  - Flags artifact cleanliness issues and follows through on updated status.
+  - Performs focused verification of file presence, compilation, requirement coverage,
+    and artifact cleanliness.
+  - Explicitly flags unavailable or unexecuted runtime tests without overstating confidence.
+  - Independently checks contracts and compatibility concerns.
+  weaknesses: []

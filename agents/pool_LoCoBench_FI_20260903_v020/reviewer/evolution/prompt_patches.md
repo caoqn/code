@@ -1,0 +1,3 @@
+- Time-box repository exploration and delegate within the first few tool calls; prioritize an initial implementation path over exhaustive context gathering, then reserve a fixed short window for targeted review and verification.
+- After initial delegation, require one consolidated implementation contract and a fixed verification window; avoid iterative status messages and repeated broad reviews, and stop once must-have requirements plus syntax/interface checks are covered.
+- For broad cross-file tasks, perform one bounded interface review after implementation begins, send a single prioritized blocker report, and avoid repeated status polling or iterative reviews unless a concrete blocker is confirmed.

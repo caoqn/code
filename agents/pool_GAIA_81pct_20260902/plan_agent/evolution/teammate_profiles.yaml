@@ -1,0 +1,229 @@
+coding_agent:
+  communication_style: concise, calculation-focused summaries.
+  notes:
+  - Effective for independently confirming finite-horizon process outcomes and identifying
+    asymptotic behavior.
+  - Best used after a researcher supplies a clean, complete table; clearly states
+    formulas and rounded outputs.
+  - For historical hyperlink questions, reports revision IDs, timestamps, explicit
+    links, and a direct-link exclusion check.
+  - Transparently flags a formula-assumption risk once an outcome conflicts with validation.
+  reliability: high
+  strengths:
+  - Builds exact dynamic-programming or recurrence models for stochastic state processes.
+  - Validates candidate maxima numerically and derives closed-form recurrences.
+  - Reports concise exact fractions alongside decimal checks.
+  - Quickly computes sample standard deviations and differences once tabulated counts
+    are available.
+  - Provides concise numerical checks and exact/decimal results.
+  - Can efficiently extract dated Wikipedia revisions and establish short hyperlink
+    paths from direct wikitext evidence.
+  - Inspects spreadsheet raw values and performs reproducible high-precision arithmetic.
+  weaknesses:
+  - Dependent on timely acquisition of the underlying dataset; cannot resolve inaccessible
+    web tables alone.
+  - May initially use a canonical modern formula in place of an exact historical-source
+    equation; require direct equation transcription when source wording is material.
+file_agent:
+  communication_style: detailed evidence summaries with explicit caveats and later
+    corrections.
+  notes:
+  - Useful for document-centric logic puzzles; should verify header semantics before
+    presenting the final inference.
+  - In qualification-matching documents, clearly treats a stated degree requirement
+    (field plus degree level) as one criterion and identifies malformed near-matches
+    against an explicit allowed-language list.
+  reliability: high
+  strengths:
+  - Efficiently extracts DOCX paragraphs and tables, reconstructing participant lists,
+    profiles, and assignment mappings.
+  - Matches observed items to profile clues and traces unmatched recipients to identify
+    the requested actor.
+  - Reliably extracts PDF job criteria and spreadsheet applicant data, evaluates each
+    candidate against compound qualifications, and provides applicant-level missing-count
+    audits.
+  weaknesses:
+  - Initially reported ambiguity about table-column semantics; resolved it after checking
+    puzzle wording and assignment direction.
+science_agent:
+  communication_style: clear, concise scientific summaries with endpoint details.
+  notes:
+  - Strong at turning complex random transitions into small state-value systems and
+    proving upper bounds.
+  - Strong for multi-constraint compound filtering and PubChem transformation API
+    extraction.
+  - Should prioritize direct collection results when available.
+  - Flags parameter-identification ambiguity rather than silently concealing it.
+  reliability: high
+  strengths:
+  - Derives compact linear equations for tagged-object survival/ejection probabilities.
+  - Performs Monte Carlo sanity checks and explains finite-boundary effects.
+  - Clearly compares candidate values and handles process interpretation caveats.
+  - Efficiently queries PubChem PUG REST to identify compounds matching multiple property
+    constraints and reports exact CID/property evidence.
+  - Can inspect PubChem SDQ transformation collections and enumerate transformation
+    rows with enzyme, successor CID, and source metadata.
+  - Communicates concise chemical reasoning and distinguishes likely biological transformations
+    from database-listed alternatives.
+  - Identifies missing parameters and semantic caveats in quantitative inputs.
+  weaknesses:
+  - May initially infer likely metabolic products before fully confirming the database's
+    exact transformation rows; should prioritize direct collection results when available.
+  - May equate a named historical-paper equation with a canonical modern equation
+    when direct source text is not extracted; need exact equation/variable definitions.
+verification_agent:
+  communication_style: structured, concise verification summaries with direct URLs
+    and confidence notes.
+  notes:
+  - Well suited to strict-format factual validation and resolving role/name ambiguities.
+  - Strong at resolving role/name ambiguities and confirming the exact requested actor
+    rather than merely the unmatched recipient.
+  - Strong at distinguishing the requested nano-compound from other nanomaterials
+    mentioned in the same article.
+  - Cross-checks article identity, publication metadata, and exact abstract wording.
+  - Strong at confirming exact entity requested rather than nearby related terms.
+  - Particularly effective at confirming that finite-horizon or terminal conditions
+    cannot invalidate an early-state optimum.
+  - Effective for independent confirmation even on simple transformed-language prompts.
+  - May initially underapply a compound scope constraint, but responds quickly and
+    accurately to specific correction requests.
+  - Most effective when given the candidate table and formula; can quickly confirm
+    rounding and whether the reported difference is signed or absolute.
+  - Effective at distinguishing requested character name from quantity of inserted
+    instances, but final answer framing should explicitly follow the prompt's noun-level
+    requirement.
+  - Recent historical-Wikipedia check correctly identified API cutoff revisions, an
+    explicit two-hop route, and impossibility of a direct hop.
+  - For job-application scoring, handles stated compound requirements as a single
+    qualification and flags exact allowed-language matching versus deceptive substrings.
+  - In provider-specific finance questions, should independently verify the provider's
+    own series definition and challenge the interpretation of adjustment qualifiers
+    before endorsing a derived answer.
+  - Most effective when tasked to validate directly visible record-page units and
+    date semantics through a distinct source path, not merely repeat an API calculation.
+  - Effective at resolving semantic ambiguity in multi-hop database questions and
+    enforcing number-only final format.
+  reliability: high
+  strengths:
+  - Independently cross-checks article identity, promotion date, and nominator across
+    multiple Wikipedia sources.
+  - Flags the key ambiguity between article nominator and promotion closer.
+  - Supplies exact concise answer formatting guidance.
+  - Independently parses DOCX tables and cross-checks all item-to-profile matches.
+  - Clearly validates strict-format answer and flags ambiguity in assignment-column
+    semantics.
+  - Independently enumerates candidate proceedings and verifies exclusion criteria
+    against article text.
+  - Resolves noun-level ambiguities and strict answer transformations, such as removing
+    a prefix exactly as requested.
+  - Supplies concise confidence-qualified summaries with direct primary-source links.
+  - Independently cross-checks versioned documentation and exact changelog wording.
+  - Resolves strict-format ambiguities, especially qualified paths versus requested
+    names.
+  - Provides concise confidence-qualified validation with primary-source links.
+  - Independently validates stochastic calculations and strict answer formatting.
+  - Flags ambiguities in process stopping rules and proves they do not affect optimum.
+  - Supplies exact continuation values and uniqueness arguments.
+  - Quickly decodes transformed text and confirms the exact requested word.
+  - Provides concise strict-format validation.
+  - Corrects scope errors after targeted follow-up and validates exact GitHub label-event
+    records against compound component filters.
+  - Independently checks numerical calculations and strict answer formatting.
+  - Good at spotting ambiguities in category scope and confirming the requested comparison.
+  - Carefully counts language syntax elements and tests competing parses.
+  - Flags ambiguity between literal code characters and Markdown delimiters.
+  - Provides concise strict-format guidance and corrects reasoning after clarification.
+  - Verifies historical Wikipedia hyperlink paths against cutoff revisions, including
+    an explicit check that a one-click direct link is absent.
+  - Independently verifies PDF qualification criteria against spreadsheet rows, enumerating
+    each exactly-one-missing applicant and threshold/category assumptions.
+  - Structured, concise independent verification summaries.
+  - Strong at strict-format factual validation, numerical checks, role/name ambiguity,
+    and exact requested entities.
+  - Can distinguish chart adjustment factors and perform historical-series calculations.
+  - Independently parses structured metadata and confirms identifier population and
+    arithmetic.
+  - Gives concise, structured validation summaries and flags counting alternatives
+    such as zero-work profiles.
+  - Independently validates strict short-answer results against benchmark dataset
+    references and PubChem REST records.
+  - Quickly identifies when the requested final entity is a downstream related compound
+    rather than the initially filtered compound.
+  - Provides exact canonical CID and confirms molecular-weight context and output
+    formatting.
+  - Validates workbook structure and high-precision arithmetic from raw spreadsheet
+    content.
+  weaknesses:
+  - May overrule an exact primary-source quotation using an unverified search-result
+    snippet; needs to prioritize direct chapter wording when identifying named influences.
+  - Verification is limited when the primary dataset has not been fully established.
+  - Initial interpretation can overcount characters when presentation delimiters are
+    ambiguous; should resolve formatting context before final recommendation.
+  - For questions tying a result to a named data provider, may validate a plausible
+    external/reconstructed series and infer the intended adjustment semantics without
+    direct confirmation of the provider's displayed data methodology.
+  - May share the same untested API grouping and date-field assumptions as the primary
+    researcher, so nominal independent confirmation is not enough when a question
+    refers to public page content.
+  - Should demand exact source-equation transcription rather than merely verify arithmetic
+    under a modern conventional formula.
+web_agent:
+  communication_style: concise, evidence-rich summaries with source links.
+  notes:
+  - Effective for date-bounded historical web research and corroboration.
+  - Effective at enumerating archive candidates and narrowing by titles, abstracts,
+    and full-text searches.
+  - Flags potential ambiguity when the article mentions multiple nano-materials, enabling
+    precise interpretation of the question wording.
+  - Effective for date/version-bounded software documentation research and corroboration.
+  - Reliably distinguishes issue creation dates from label-event dates in GitHub history
+    research.
+  - For bibliographic questions, prioritizes a direct chapter quotation over contextual
+    snippets, which is especially valuable when names are easily conflated.
+  - For blocked or dynamic pages, should report a concrete blocker early and provide
+    alternate source paths or partial candidate data.
+  - For provider-specific financial-chart questions, should prioritize extracting
+    the provider methodology/display definition and explicitly test qualifier scope
+    before calculating a historical threshold.
+  - Best used for rapid web/API evidence gathering, with a separate direct-page/date-field
+    validation when wording asks what is on a public profile.
+  reliability: medium
+  strengths:
+  - Quickly locates relevant Wikipedia promotion indexes and FAC archives.
+  - Provides direct URLs and raw-page quotations confirming dates and usernames.
+  - Distinguishes nominator from promoting administrator when reporting findings.
+  - Quickly locates authoritative Nature archive and PMC full-text sources for date-bounded
+    article identification.
+  - Provides exact quoted passages and direct URLs, including machine-readable full-text
+    corroboration.
+  - Checks exclusion criteria by searching full text for absent terms and distinguishes
+    related compounds discussed in the article.
+  - Quickly locates authoritative versioned changelog sources and extracts exact quoted
+    wording.
+  - Distinguishes full qualified class paths from requested basename and flags output-format
+    implications.
+  - Effectively applies compound GitHub search filters and extracts authoritative
+    issue-label event timestamps.
+  - Efficiently resolves DOI-based book questions by locating searchable full text
+    and quoting the exact chapter passage.
+  - Effective at locating ScienceDirect or related authoritative sources and extracting
+    quantitative evidence.
+  - Provides concise, evidence-rich summaries with direct URLs and quotations.
+  - Concise, evidence-rich web research summaries with source links.
+  - Effective for historical, bibliographic, documentation, and GitHub evidence gathering.
+  - Can reconstruct historical numerical series and identify exact crossing dates
+    and values.
+  - Flags unavailable or dynamically rendered primary-page fields rather than pretending
+    direct evidence exists.
+  - Quickly identifies researcher identifiers in structured metadata and retrieves
+    public identifier-service API records.
+  - Explains grouping and duplicate-record behavior with official documentation and
+    sample evidence.
+  - Provides concise, evidence-rich source summaries.
+  weaknesses:
+  - When a question names a specific provider and has ambiguous adjustment wording,
+    may replace the provider-displayed series with reconstructed nominal historical
+    data without first proving that interpretation matches the provider semantics.
+  - In researcher-profile counting tasks, can treat an API projection and its selected
+    publication-date field as equivalent to the public-page question without directly
+    validating page-visible date semantics; this can yield a materially wrong aggregate.

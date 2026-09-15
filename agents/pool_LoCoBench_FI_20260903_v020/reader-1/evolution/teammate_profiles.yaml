@@ -1,0 +1,150 @@
+dependency_architect:
+  communication_style: Detailed architectural notes followed by targeted clarifications.
+  notes:
+  - Most useful when conclusions are prioritized into a compact implementation contract;
+    analysis may be more detailed than needed under tight budgets.
+  - Most effective with narrowly scoped questions and a compact prioritized report;
+    extensive follow-ups increase overhead.
+  - Most effective when scope is narrowly bounded and conclusions are prioritized
+    into a compact implementation contract; extensive follow-ups increase overhead.
+  reliability: high
+  strengths:
+  - Traces cross-module dependencies and interface propagation deeply.
+  - Surfaces persistence, DI, and integration constraints with concrete implications.
+  - Traces cross-module dependencies and architectural compatibility risks deeply.
+  - Traces cross-module dependencies, persistence, DI, and interface propagation deeply.
+  - Surfaces architectural compatibility constraints with concrete implementation
+    implications.
+developer:
+  communication_style: Concise implementation updates and targeted requests.
+  notes:
+  - Works effectively with code-reading reports that include exact interfaces and
+    integration points.
+  - Performs best with an early consolidated contract, explicit minimum viable target,
+    and fixed verification checklist.
+  - Responsive to targeted questions and concrete code-level feedback.
+  - Performs best with an early consolidated contract, canonical integration point,
+    and fixed final checklist.
+  - Performs best with one consolidated report, canonical entrypoint, and fixed final
+    verification checklist.
+  - Performs best with one consolidated code-reading report, explicit canonical integration
+    path, and fixed final verification checklist.
+  - Benefits from early bounded evidence to reduce late integration churn.
+  reliability: high
+  strengths:
+  - Translates repository analysis into a broad implementation covering configuration,
+    middleware, persistence, and integration concerns.
+  - Responsive to targeted follow-up questions and incorporates feedback from reviewers
+    and readers.
+  - Integrates multi-agent repository evidence into coherent cross-module implementations
+    quickly.
+  - Translates concrete interface findings into working code quickly.
+  - Coordinates with reviewers and incorporates actionable feedback.
+  - Handles configuration, middleware, persistence, and API wiring competently.
+  - Integrates code-reading evidence into coherent cross-module implementations quickly.
+  - Responds constructively to concrete interface warnings and verification feedback.
+  - Communicates implementation status clearly and produces required artifacts.
+  - Produces complete solution artifacts and performs syntax/artifact checks.
+  weaknesses:
+  - Can spend substantial time iterating across many coordination messages before
+    finalizing, which risks schedule pressure on large tasks.
+  - Can spend too long iterating and reconciling many incremental review inputs under
+    hard deadlines.
+  - Coordination may become message-heavy when requirements span multiple layers.
+  - Can iterate or coordinate too long when requirements span many architectural layers.
+  - May overlook exact schema fields or canonical entrypoints without an explicit
+    acceptance checklist.
+  - Can iterate too long when requirements span many architectural layers or when
+    many incremental review inputs arrive.
+  - Can iterate too long when receiving many incremental coordination messages under
+    tight deadlines.
+  - May overlook exact contract details without a prioritized acceptance checklist.
+  - Under broad requirements, may overlook exact acceptance fields or canonical entrypoints
+    without a prioritized checklist.
+feature_integrator:
+  communication_style: Detailed technical findings with concrete integration suggestions.
+  notes:
+  - Strong partner for checking feature composition and end-to-end wiring; most effective
+    when must-have concerns are prioritized.
+  - Most effective when asked to prioritize blocking must-haves and provide one consolidated
+    report; extensive incremental guidance can increase overhead.
+  - Strong partner for end-to-end completeness; ask for blocking must-haves first
+    and defer optional compatibility concerns.
+  reliability: high
+  strengths:
+  - Maps requirements to implementation and integration surfaces carefully.
+  - Identifies end-to-end completeness and edge-case considerations.
+  - Provides actionable validation-oriented feedback.
+  - Maps feature requirements to implementation and integration surfaces.
+  - Identifies edge cases and duplicate entrypoint risks.
+  - Maps feature requirements to implementation and integration surfaces across routes,
+    schemas, services, and duplicate entrypoints.
+  - Identifies exact contracts, lifecycle concerns, and edge cases.
+  weaknesses:
+  - Guidance can become extensive and require prioritization under tight budgets.
+planner:
+  communication_style: Structured delegation with frequent status coordination.
+  notes:
+  - Benefits from early compatibility matrices when repository contains parallel or
+    legacy implementations.
+  - Benefits from early dispatch and a single consolidated implementation/verification
+    checklist.
+  - Should issue early bounded assignments and consolidate findings into one prioritized
+    contract to avoid time exhaustion.
+  - Most effective when dispatching bounded assignments immediately and consolidating
+    findings into one prioritized implementation contract.
+  reliability: high
+  strengths:
+  - Assigns narrowly scoped repository-reading tasks and routes findings to implementers.
+  - Coordinates multi-agent work efficiently and keeps requests focused.
+  - Coordinates bounded repository-reading assignments and routes findings to implementers.
+  - Identifies architectural scope and delegates effectively.
+  - Delegates bounded repository-reading tasks across agents.
+  - Coordinates implementation and verification surfaces.
+  - Delegates repository analysis across agents and coordinates implementation scope.
+  - Identifies broad feature surfaces and dependencies.
+  weaknesses:
+  - May rely on implementer to reconcile substantial cross-module inconsistencies
+    under time pressure.
+  - Can generate multiple coordination messages under broad requirements, increasing
+    overhead.
+  - Coordination can become message-heavy when many agents send incremental updates.
+  - Coordination can become message-heavy when requirements span many layers.
+  - May delay convergence by seeking multiple incremental updates.
+reader-2:
+  communication_style: Structured, information-dense technical updates.
+  notes:
+  - Works best with narrowly scoped file groups and an explicit requirement to prioritize
+    blocking interfaces in one report.
+  reliability: high
+  strengths:
+  - Performs focused repository inspection and provides detailed, code-grounded integration
+    findings.
+  - Identifies canonical versus duplicate interfaces and compatibility risks.
+  weaknesses:
+  - Findings may be broader than necessary under strict time budgets.
+reviewer:
+  communication_style: Concise, issue-focused review messages.
+  notes:
+  - Best engaged once near finalization with a fixed checklist; repeated review rounds
+    consume time.
+  reliability: high
+  strengths:
+  - Performs focused code review against interfaces, invariants, and requirements.
+  - Finds blocking correctness and compatibility risks with actionable fixes.
+solution_verifier:
+  communication_style: Brief checklist-oriented validation reports.
+  notes:
+  - Best engaged once near finalization with a fixed checklist; repeated late checks
+    consume time.
+  - Most effective as a single final quality gate with an explicit acceptance checklist;
+    late iterative checks add overhead.
+  reliability: high
+  strengths:
+  - Performs concise independent checks of syntax, artifact placement, route wiring,
+    and exact contracts.
+  - Clearly distinguishes blockers from non-blocking caveats.
+  - Independently checks syntax, artifact placement, route wiring, exact contracts,
+    and requirement coverage.
+  - Clearly distinguishes blockers from non-blocking caveats and catches packaging
+    artifacts.

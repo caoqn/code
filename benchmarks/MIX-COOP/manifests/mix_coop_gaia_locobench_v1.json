@@ -1,0 +1,2297 @@
+{
+  "schema_version": 1,
+  "suite_id": "mix-coop-gaia-locobench-v1",
+  "active_benchmarks": [
+    "gaia",
+    "locobench"
+  ],
+  "description": "GAIA + LoCoBench mixed evolution: 10 evolve and 40 holdout tasks per benchmark.",
+  "ordering": {
+    "strategy": "stratified_round_robin",
+    "seed": 20260822,
+    "round_unit": "one GAIA task plus one LoCoBench task",
+    "shuffle_within_round": false
+  },
+  "shared_evolution": {
+    "mode": "single_team_workspace",
+    "team_name": "pool_MIX_COOP",
+    "state_root": "agents/pool_MIX_COOP",
+    "require_common_agent_namespace": true,
+    "shared_artifacts": [
+      "templates.json",
+      "handoff_rules.json",
+      "constitution.md",
+      "pool.yaml",
+      "*/evolution/prompt_patches.md",
+      "*/evolution/teammate_profiles.yaml",
+      "*/skills/**"
+    ],
+    "evolution_policy": {
+      "evolve_phase": "sequential_updates_after_each_successfully_evaluated_task",
+      "test_phase": "frozen_read_only_snapshot"
+    }
+  },
+  "isolation_policy": {
+    "selector_visible_fields": [
+      "native_full_task",
+      "normalized_collaboration_evidence",
+      "family_catalog"
+    ],
+    "selector_hidden_fields": [
+      "mix_task_id",
+      "source_benchmark",
+      "source_split",
+      "source_task_id",
+      "source_index",
+      "adapter_module",
+      "native_evaluator",
+      "hidden_annotations"
+    ],
+    "native_components": [
+      "tool_environment",
+      "task_construction",
+      "output_contract",
+      "artifact_collection",
+      "evaluator"
+    ],
+    "score_policy": "retain_native_score_and_compute_cross-suite_metrics_only_during_aggregation"
+  },
+  "benchmark_bindings": {
+    "gaia": {
+      "adapter_module": "benchmarks.adapter_gaia",
+      "adapter_class": "GAIAAdapter",
+      "task_construction": "GAIAAdapter.build_task",
+      "native_environment": "GAIA attachment workspace and retrieval tools",
+      "execution_policy": "knowledge_question_with_optional_attachment",
+      "execution_policy_version": "1",
+      "output_contract": "gaia_short_answer",
+      "submission_type": "strict_short_answer",
+      "native_evaluator": "GAIAAdapter.evaluate",
+      "native_allowed_tools": [
+        "read_file",
+        "write_file",
+        "bash",
+        "web_search",
+        "web_fetch"
+      ]
+    },
+    "locobench": {
+      "adapter_module": "benchmarks.adapter_locobench",
+      "adapter_class": "LoCoBenchAdapter",
+      "task_construction": "LoCoBenchAdapter.build_task",
+      "native_environment": "isolated solution workspace and native scenario context",
+      "execution_policy": "long_context_solution_workspace",
+      "execution_policy_version": "1",
+      "output_contract": "locobench_solution_summary",
+      "submission_type": "solution_files_plus_completion_summary",
+      "native_evaluator": "LoCoBenchAdapter.evaluate",
+      "native_allowed_tools": [
+        "read_file",
+        "write_file",
+        "bash"
+      ]
+    }
+  },
+  "tasks": [
+    {
+      "mix_task_id": "mix-evolve-000-gaia",
+      "phase": "evolve",
+      "order": 0,
+      "source": {
+        "benchmark": "gaia",
+        "split": "train_20",
+        "task_id": "4fc2f1ae-8625-45b5-ab34-ad4433bc21f8",
+        "source_index": 0,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_1",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-001-locobench",
+      "phase": "evolve",
+      "order": 1,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_api_gateway_expert_045_feature_implementation_hard_01",
+        "source_index": 0,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "hard",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-002-gaia",
+      "phase": "evolve",
+      "order": 2,
+      "source": {
+        "benchmark": "gaia",
+        "split": "train_20",
+        "task_id": "cffe0e32-c9a6-4c52-9877-78ceb4aaa9fb",
+        "source_index": 1,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_1",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-003-locobench",
+      "phase": "evolve",
+      "order": 3,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_api_gateway_expert_045_cross_file_refactoring_hard_01",
+        "source_index": 0,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "hard",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-004-gaia",
+      "phase": "evolve",
+      "order": 4,
+      "source": {
+        "benchmark": "gaia",
+        "split": "train_20",
+        "task_id": "b415aba4-4b68-4fc6-9b89-2c812e55a3e1",
+        "source_index": 2,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_1",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-005-locobench",
+      "phase": "evolve",
+      "order": 5,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_api_gateway_hard_009_feature_implementation_expert_01",
+        "source_index": 1,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "expert",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-006-gaia",
+      "phase": "evolve",
+      "order": 6,
+      "source": {
+        "benchmark": "gaia",
+        "split": "train_20",
+        "task_id": "7619a514-5fa8-43ef-9143-83b66a43d7a4",
+        "source_index": 6,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-007-locobench",
+      "phase": "evolve",
+      "order": 7,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_api_gateway_hard_009_cross_file_refactoring_expert_01",
+        "source_index": 1,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "expert",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-008-gaia",
+      "phase": "evolve",
+      "order": 8,
+      "source": {
+        "benchmark": "gaia",
+        "split": "train_20",
+        "task_id": "db4fd70a-2d37-40ea-873f-9433dc5e301f",
+        "source_index": 7,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-009-locobench",
+      "phase": "evolve",
+      "order": 9,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_api_gateway_hard_081_feature_implementation_easy_01",
+        "source_index": 2,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "easy",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-010-gaia",
+      "phase": "evolve",
+      "order": 10,
+      "source": {
+        "benchmark": "gaia",
+        "split": "train_20",
+        "task_id": "7cc4acfa-63fd-4acc-a1a1-e8e529e0a97f",
+        "source_index": 8,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-011-locobench",
+      "phase": "evolve",
+      "order": 11,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_api_gateway_hard_081_cross_file_refactoring_easy_01",
+        "source_index": 2,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "easy",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-012-gaia",
+      "phase": "evolve",
+      "order": 12,
+      "source": {
+        "benchmark": "gaia",
+        "split": "train_20",
+        "task_id": "65638e28-7f37-4fa7-b7b9-8c19bb609879",
+        "source_index": 9,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-013-locobench",
+      "phase": "evolve",
+      "order": 13,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_api_graphql_easy_043_feature_implementation_expert_01",
+        "source_index": 3,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "expert",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-014-gaia",
+      "phase": "evolve",
+      "order": 14,
+      "source": {
+        "benchmark": "gaia",
+        "split": "train_20",
+        "task_id": "bec74516-02fc-48dc-b202-55e78d0e17cf",
+        "source_index": 15,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_3",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-015-locobench",
+      "phase": "evolve",
+      "order": 15,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_api_graphql_easy_043_cross_file_refactoring_expert_01",
+        "source_index": 3,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "expert",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-016-gaia",
+      "phase": "evolve",
+      "order": 16,
+      "source": {
+        "benchmark": "gaia",
+        "split": "train_20",
+        "task_id": "ebbc1f13-d24d-40df-9068-adcf735b4240",
+        "source_index": 16,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_3",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-017-locobench",
+      "phase": "evolve",
+      "order": 17,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_api_graphql_expert_007_feature_implementation_medium_01",
+        "source_index": 4,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "medium",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-018-gaia",
+      "phase": "evolve",
+      "order": 18,
+      "source": {
+        "benchmark": "gaia",
+        "split": "train_20",
+        "task_id": "384d0dd8-e8a4-4cfe-963c-d37f256e7662",
+        "source_index": 17,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_3",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-019-locobench",
+      "phase": "evolve",
+      "order": 19,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_api_graphql_expert_007_cross_file_refactoring_medium_01",
+        "source_index": 4,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "medium",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-020-gaia",
+      "phase": "test",
+      "order": 0,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "6f37996b-2ac7-44b0-8e68-6d28256631b4",
+        "source_index": 0,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_1",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-021-locobench",
+      "phase": "test",
+      "order": 1,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_etl_expert_011_feature_implementation_hard_01",
+        "source_index": 20,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "hard",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-022-gaia",
+      "phase": "test",
+      "order": 2,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "a0c07678-e491-4bbc-8f0b-07405144218f",
+        "source_index": 1,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_1",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-023-locobench",
+      "phase": "test",
+      "order": 3,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_etl_expert_011_cross_file_refactoring_hard_01",
+        "source_index": 20,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "hard",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-024-gaia",
+      "phase": "test",
+      "order": 4,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "3f57289b-8c60-48be-bd80-01f8099ca449",
+        "source_index": 2,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_1",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-025-locobench",
+      "phase": "test",
+      "order": 5,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_etl_expert_083_feature_implementation_easy_01",
+        "source_index": 21,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "easy",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-026-gaia",
+      "phase": "test",
+      "order": 6,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "a3fbeb63-0e8c-4a11-bff6-0e3b484c3e9c",
+        "source_index": 3,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_1",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-027-locobench",
+      "phase": "test",
+      "order": 7,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_etl_expert_083_cross_file_refactoring_easy_01",
+        "source_index": 21,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "easy",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-028-gaia",
+      "phase": "test",
+      "order": 8,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "72e110e7-464c-453c-a309-90a95aed6538",
+        "source_index": 4,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_1",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-029-locobench",
+      "phase": "test",
+      "order": 9,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_lake_expert_086_feature_implementation_easy_01",
+        "source_index": 22,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "easy",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-030-gaia",
+      "phase": "test",
+      "order": 10,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "935e2cff-ae78-4218-b3f5-115589b19dae",
+        "source_index": 5,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_1",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-031-locobench",
+      "phase": "test",
+      "order": 11,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_lake_expert_086_cross_file_refactoring_easy_01",
+        "source_index": 22,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "easy",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-032-gaia",
+      "phase": "test",
+      "order": 12,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "b816bfce-3d80-4913-a07d-69b752ce6377",
+        "source_index": 6,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_1",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-033-locobench",
+      "phase": "test",
+      "order": 13,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_lake_hard_014_feature_implementation_expert_01",
+        "source_index": 23,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "expert",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-034-gaia",
+      "phase": "test",
+      "order": 14,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "23dd907f-1261-4488-b21c-e9185af91d5e",
+        "source_index": 7,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_1",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-035-locobench",
+      "phase": "test",
+      "order": 15,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_lake_hard_014_cross_file_refactoring_expert_01",
+        "source_index": 23,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "expert",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-036-gaia",
+      "phase": "test",
+      "order": 16,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "3cef3a44-215e-4aed-8e3b-b1e3f08063b7",
+        "source_index": 8,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_1",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-037-locobench",
+      "phase": "test",
+      "order": 17,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_lake_medium_050_feature_implementation_hard_01",
+        "source_index": 24,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "hard",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-038-gaia",
+      "phase": "test",
+      "order": 18,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "5a0c1adf-205e-4841-a666-7c3ef95def9d",
+        "source_index": 9,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_1",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-039-locobench",
+      "phase": "test",
+      "order": 19,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_lake_medium_050_cross_file_refactoring_hard_01",
+        "source_index": 24,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "hard",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-040-gaia",
+      "phase": "test",
+      "order": 20,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "7673d772-ef80-4f0f-a602-1bf4485c9b43",
+        "source_index": 10,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_1",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-041-locobench",
+      "phase": "test",
+      "order": 21,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_streaming_easy_049_feature_implementation_hard_01",
+        "source_index": 25,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "hard",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-042-gaia",
+      "phase": "test",
+      "order": 22,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "dc22a632-937f-4e6a-b72f-ba0ff3f5ff97",
+        "source_index": 11,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_1",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-043-locobench",
+      "phase": "test",
+      "order": 23,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_streaming_easy_049_cross_file_refactoring_hard_01",
+        "source_index": 25,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "hard",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-044-gaia",
+      "phase": "test",
+      "order": 24,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "bda648d7-d618-4883-88f4-3466eabd860e",
+        "source_index": 12,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_1",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-045-locobench",
+      "phase": "test",
+      "order": 25,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_streaming_expert_085_feature_implementation_expert_01",
+        "source_index": 26,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "expert",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-046-gaia",
+      "phase": "test",
+      "order": 26,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "dc28cf18-6431-458b-83ef-64b3ce566c10",
+        "source_index": 13,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_1",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-047-locobench",
+      "phase": "test",
+      "order": 27,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_streaming_expert_085_cross_file_refactoring_expert_01",
+        "source_index": 26,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "expert",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-048-gaia",
+      "phase": "test",
+      "order": 28,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "e142056d-56ab-4352-b091-b56054bd1359",
+        "source_index": 14,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_1",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-049-locobench",
+      "phase": "test",
+      "order": 29,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_streaming_hard_013_feature_implementation_expert_01",
+        "source_index": 27,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "expert",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-050-gaia",
+      "phase": "test",
+      "order": 30,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "e0c10771-d627-4fd7-9694-05348e54ee36",
+        "source_index": 38,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-051-locobench",
+      "phase": "test",
+      "order": 31,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_streaming_hard_013_cross_file_refactoring_expert_01",
+        "source_index": 27,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "expert",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-052-gaia",
+      "phase": "test",
+      "order": 32,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "4d0aa727-86b1-406b-9b33-f870dd14a4a5",
+        "source_index": 39,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-053-locobench",
+      "phase": "test",
+      "order": 33,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_warehouse_easy_084_feature_implementation_expert_01",
+        "source_index": 28,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "expert",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-054-gaia",
+      "phase": "test",
+      "order": 34,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "f3917a3d-1d17-4ee2-90c5-683b072218fe",
+        "source_index": 40,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-055-locobench",
+      "phase": "test",
+      "order": 35,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_warehouse_easy_084_cross_file_refactoring_expert_01",
+        "source_index": 28,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "expert",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-056-gaia",
+      "phase": "test",
+      "order": 36,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "d1af70ea-a9a4-421a-b9cc-94b5e02f1788",
+        "source_index": 41,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-057-locobench",
+      "phase": "test",
+      "order": 37,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_warehouse_hard_048_feature_implementation_hard_01",
+        "source_index": 29,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "hard",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-058-gaia",
+      "phase": "test",
+      "order": 38,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "366e2f2b-8632-4ef2-81eb-bc3877489217",
+        "source_index": 42,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-059-locobench",
+      "phase": "test",
+      "order": 39,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_warehouse_hard_048_cross_file_refactoring_hard_01",
+        "source_index": 29,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "hard",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-060-gaia",
+      "phase": "test",
+      "order": 40,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "65da0822-a48a-4a68-bbad-8ed1b835a834",
+        "source_index": 43,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-061-locobench",
+      "phase": "test",
+      "order": 41,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_warehouse_medium_012_feature_implementation_hard_01",
+        "source_index": 30,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "hard",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-062-gaia",
+      "phase": "test",
+      "order": 42,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "708b99c5-e4a7-49cb-a5cf-933c8d46470d",
+        "source_index": 44,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-063-locobench",
+      "phase": "test",
+      "order": 43,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_warehouse_medium_012_cross_file_refactoring_hard_01",
+        "source_index": 30,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "hard",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-064-gaia",
+      "phase": "test",
+      "order": 44,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "3627a8be-a77f-41bb-b807-7e1bd4c0ebdf",
+        "source_index": 45,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-065-locobench",
+      "phase": "test",
+      "order": 45,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_desktop_development_expert_021_feature_implementation_expert_01",
+        "source_index": 31,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "expert",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-066-gaia",
+      "phase": "test",
+      "order": 46,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "17b5a6a3-bc87-42e8-b0fb-6ab0781ef2cc",
+        "source_index": 46,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-067-locobench",
+      "phase": "test",
+      "order": 47,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_desktop_development_expert_021_cross_file_refactoring_expert_01",
+        "source_index": 31,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "expert",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-068-gaia",
+      "phase": "test",
+      "order": 48,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "9f41b083-683e-4dcf-9185-ccfeaa88fa45",
+        "source_index": 47,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-069-locobench",
+      "phase": "test",
+      "order": 49,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_desktop_development_expert_057_feature_implementation_hard_01",
+        "source_index": 32,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "hard",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-070-gaia",
+      "phase": "test",
+      "order": 50,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "87c610df-bef7-4932-b950-1d83ef4e282b",
+        "source_index": 48,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-071-locobench",
+      "phase": "test",
+      "order": 51,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_desktop_development_expert_057_cross_file_refactoring_hard_01",
+        "source_index": 32,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "hard",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-072-gaia",
+      "phase": "test",
+      "order": 52,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "ed58682d-bc52-4baa-9eb0-4eb81e1edacc",
+        "source_index": 49,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-073-locobench",
+      "phase": "test",
+      "order": 53,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_desktop_development_hard_093_feature_implementation_medium_01",
+        "source_index": 33,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "medium",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-074-gaia",
+      "phase": "test",
+      "order": 54,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "076c8171-9b3b-49b9-a477-244d2a532826",
+        "source_index": 50,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-075-locobench",
+      "phase": "test",
+      "order": 55,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_desktop_development_hard_093_cross_file_refactoring_medium_01",
+        "source_index": 33,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "medium",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-076-gaia",
+      "phase": "test",
+      "order": 56,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "c8b7e059-c60d-472e-ad64-3b04ae1166dc",
+        "source_index": 51,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-077-locobench",
+      "phase": "test",
+      "order": 57,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_desktop_media_hard_056_feature_implementation_easy_01",
+        "source_index": 34,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "easy",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-078-gaia",
+      "phase": "test",
+      "order": 58,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "023e9d44-96ae-4eed-b912-244ee8c3b994",
+        "source_index": 52,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-079-locobench",
+      "phase": "test",
+      "order": 59,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_desktop_media_hard_056_cross_file_refactoring_easy_01",
+        "source_index": 34,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "easy",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-080-gaia",
+      "phase": "test",
+      "order": 60,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "e9a2c537-8232-4c3f-85b0-b52de6bcba99",
+        "source_index": 53,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-081-locobench",
+      "phase": "test",
+      "order": 61,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_desktop_media_medium_020_feature_implementation_hard_01",
+        "source_index": 35,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "hard",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-082-gaia",
+      "phase": "test",
+      "order": 62,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "e2d69698-bc99-4e85-9880-67eaccd66e6c",
+        "source_index": 54,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-083-locobench",
+      "phase": "test",
+      "order": 63,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_desktop_media_medium_020_cross_file_refactoring_hard_01",
+        "source_index": 35,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "hard",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-084-gaia",
+      "phase": "test",
+      "order": 64,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "f2feb6a4-363c-4c09-a804-0db564eafd68",
+        "source_index": 55,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-085-locobench",
+      "phase": "test",
+      "order": 65,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_desktop_media_medium_092_feature_implementation_expert_01",
+        "source_index": 36,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "expert",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-086-gaia",
+      "phase": "test",
+      "order": 66,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "f0f46385-fc03-4599-b5d3-f56496c3e69f",
+        "source_index": 56,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-087-locobench",
+      "phase": "test",
+      "order": 67,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_desktop_media_medium_092_cross_file_refactoring_expert_01",
+        "source_index": 36,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "expert",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-088-gaia",
+      "phase": "test",
+      "order": 68,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "0ff53813-3367-4f43-bcbd-3fd725c1bf4b",
+        "source_index": 57,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_2",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-089-locobench",
+      "phase": "test",
+      "order": 69,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_desktop_productivity_easy_091_feature_implementation_expert_01",
+        "source_index": 37,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "expert",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-090-gaia",
+      "phase": "test",
+      "order": 70,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "851e570a-e3de-4d84-bcfa-cc85578baa59",
+        "source_index": 87,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_3",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-091-locobench",
+      "phase": "test",
+      "order": 71,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_desktop_productivity_easy_091_cross_file_refactoring_expert_01",
+        "source_index": 37,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "expert",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-092-gaia",
+      "phase": "test",
+      "order": 72,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "50f58759-7bd6-406f-9b0d-5692beb2a926",
+        "source_index": 88,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_3",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-093-locobench",
+      "phase": "test",
+      "order": 73,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_desktop_productivity_hard_055_feature_implementation_hard_01",
+        "source_index": 38,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "hard",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-094-gaia",
+      "phase": "test",
+      "order": 74,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "9e1fc53b-46ff-49a1-9d05-9e6faac34cc5",
+        "source_index": 89,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_3",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-095-locobench",
+      "phase": "test",
+      "order": 75,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_desktop_productivity_hard_055_cross_file_refactoring_hard_01",
+        "source_index": 38,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "hard",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-096-gaia",
+      "phase": "test",
+      "order": 76,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "3da89939-209c-4086-8520-7eb734e6b4ef",
+        "source_index": 90,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_3",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-097-locobench",
+      "phase": "test",
+      "order": 77,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_desktop_productivity_medium_019_feature_implementation_medium_01",
+        "source_index": 39,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "repository_understanding",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "medium",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-098-gaia",
+      "phase": "test",
+      "order": 78,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "676e5e31-a554-4acc-9286-b60d90a92d26",
+        "source_index": 91,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "evidence_retrieval",
+          "independent_verification",
+          "global_synthesis"
+        ],
+        "difficulty": "level_3",
+        "notes": "Analysis-only annotation; never passed to Selector."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-099-locobench",
+      "phase": "test",
+      "order": 79,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_desktop_productivity_medium_019_cross_file_refactoring_medium_01",
+        "source_index": 39,
+        "adapter_args": {
+          "category": "cross_file_refactoring"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [
+          "cross_file_consistency",
+          "implementation",
+          "test_verification"
+        ],
+        "difficulty": "medium",
+        "notes": "Analysis-only annotation; native category is not selector input."
+      }
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+developer:
+  communication_style: Concise implementation updates with targeted requests for review.
+  notes:
+  - Works effectively from concise architectural maps and verification feedback.
+  - Works best from an early consolidated dependency map and prioritized verification
+    checklist.
+  - Works best from a prioritized contract, canonical entrypoint identification, and
+    fixed final verification checklist.
+  - Performs best with an early prioritized contract, canonical entrypoint identification,
+    and a fixed final checklist.
+  - Performs best with an early consolidated contract, canonical entrypoint identification,
+    and fixed final verification checklist.
+  - Performs best with an early consolidated dependency map, explicit canonical runtime
+    path, and fixed final verification checklist.
+  - Strong at rapid integration when exact contracts are locked before implementation
+    cutoff.
+  reliability: high
+  strengths:
+  - Implements cross-module changes quickly and incorporates concrete dependency findings.
+  - Communicates implementation status and requests targeted follow-up when needed.
+  - Integrates cross-module code evidence into coherent implementations spanning configuration,
+    middleware, persistence, and API wiring.
+  - Translates concrete interface findings into code quickly and incorporates reviewer
+    and verifier feedback effectively.
+  - Communicates implementation status and coordinates well with specialists.
+  - Integrates cross-module repository findings into coherent implementations quickly.
+  - Communicates concise status updates and incorporates targeted feedback.
+  - Handles configuration, API wiring, persistence, and compatibility concerns competently.
+  - Responds constructively to focused review and verification feedback.
+  - Communicates concise implementation status and produces required artifacts.
+  - Integrates cross-module repository evidence into coherent implementation artifacts
+    quickly.
+  - Responds constructively to concrete contract corrections and verification findings.
+  - Communicates concise implementation status and handles routing, schema, service,
+    and persistence wiring.
+  - Integrates repository evidence into coherent cross-module implementations quickly.
+  - Handles routing, configuration, persistence, schemas, and documentation wiring
+    competently.
+  weaknesses:
+  - Can spend multiple iterations reconciling integration details near the time budget.
+  - Can spend too long iterating and sending incremental coordination updates when
+    requirements span many layers, risking schedule pressure.
+  - Can iterate or coordinate too long when requirements span many architectural layers.
+  - May overlook exact schema fields or canonical entrypoints without an explicit
+    checklist.
+  - Can iterate or coordinate too long when requirements span many layers or feedback
+    arrives incrementally.
+  - May overlook exact acceptance fields or canonical duplicate entrypoints without
+    an explicit checklist.
+  - Under broad multi-layer requirements, may overlook exact acceptance fields or
+    canonical duplicate entrypoints without an explicit checklist.
+  - Can iterate or coordinate too long when feedback arrives incrementally under tight
+    deadlines.
+feature_integrator:
+  communication_style: Detailed technical findings with concrete implementation implications.
+  notes:
+  - Strong partner for cross-file architecture checks when asked to separate blocking
+    concerns from optional enhancements.
+  - Most effective when asked to separate blocking must-haves from optional enhancements.
+  reliability: high
+  strengths:
+  - Maps feature requirements to implementation and integration surfaces across modules.
+  - Identifies end-to-end completeness, routing ambiguities, and edge cases.
+  - Provides actionable validation-oriented feedback.
+  - Thoroughly maps feature requirements across routing, schemas, services, and duplicate
+    entrypoints.
+  - Identifies exact contracts, lifecycle concerns, edge cases, and integration risks.
+  - Provides actionable validation-oriented guidance.
+  weaknesses:
+  - Guidance can become extensive and require prioritization under tight budgets.
+  - Iterative feedback may increase coordination overhead if scope is not explicitly
+    bounded.
+  - Guidance can become extensive under tight budgets; blocking concerns need prioritization.
+  - May surface optional compatibility concerns late if scope is not explicitly bounded.
+planner:
+  communication_style: Concise coordination messages with targeted assignments.
+  notes:
+  - Effective when delegating bounded file groups and requesting concise evidence-based
+    reports.
+  - Most effective when dispatches are early, bounded, and paired with a concise acceptance
+    checklist.
+  - Works best with an explicit canonical entrypoint and prioritized acceptance checklist.
+  reliability: high
+  strengths:
+  - Coordinates multi-agent repository analysis and implementation planning effectively.
+  - Routes focused reading tasks and consolidates architectural findings.
+  - Maintains awareness of cross-service integration and acceptance requirements.
+  - Coordinates multi-agent work and decomposes broad feature requests across bounded
+    file groups.
+  - Communicates implementation priorities and tracks progress across agents.
+  - Coordinates parallel agents and decomposes broad feature work across modules.
+  - Tracks implementation and verification dependencies effectively.
+  - Communicates clear assignments and consolidates agent outputs.
+  weaknesses:
+  - Coordination can become message-heavy when broad requirements generate many findings.
+  - Benefits from early prioritization of must-have paths under time constraints.
+  - Coordination can become message-heavy under broad scopes and hard deadlines.
+  - Benefits from early convergence on a minimum viable target rather than repeated
+    status rounds.
+  - Coordination can become message-heavy when requirements span many layers.
+  - Benefits from a strict time-box and early minimum-viable scope.
+reviewer:
+  communication_style: Detailed but focused review notes, often iterative.
+  notes:
+  - Useful for catching integration and contract mismatches before finalization.
+  reliability: high
+  strengths:
+  - Provides concrete, code-level review findings and identifies compatibility risks.
+  - Communicates clearly with prioritized corrections.
+  weaknesses:
+  - May issue several incremental review updates as implementation evolves.
+solution_verifier:
+  communication_style: Concise, evidence-based status reports.
+  notes:
+  - Best leveraged with an early verification pass and explicit scope.
+  reliability: high
+  strengths:
+  - Performs targeted static verification and reports concrete failures or confidence
+    signals.
+  - Checks package integration and required output completeness.
+  weaknesses:
+  - Verification feedback can arrive late if implementation continues iterating.

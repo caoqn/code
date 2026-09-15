@@ -1,0 +1,338 @@
+dependency_architect:
+  communication_style: Detailed architectural notes followed by targeted clarifications.
+  notes:
+  - Most effective when scope is narrowly bounded and findings are summarized into
+    a compact implementation contract.
+  - Most effective with narrowly bounded questions and prioritized conclusions.
+  - Most effective with narrowly scoped questions and a compact prioritized implementation
+    contract.
+  reliability: high
+  strengths:
+  - Traces cross-module dependencies, duplicate entrypoints, persistence, DI, and
+    interface propagation risks.
+  - Surfaces architectural compatibility constraints with concrete implementation
+    implications.
+  - Provides detailed evidence that helps integrators make canonical-vs-legacy decisions.
+  - Traces cross-module dependencies, duplicate entrypoints, and interface propagation
+    risks deeply.
+  - Surfaces persistence, dependency-injection, and architectural compatibility constraints
+    with concrete implications.
+  - Communicates detailed architectural findings that support canonical-vs-legacy
+    decisions.
+  - Traces cross-module dependencies, persistence, DI, and interface propagation deeply.
+  - Highlights canonical versus legacy integration and architectural compatibility
+    risks.
+  - Surfaces infrastructure constraints with concrete implementation implications.
+  weaknesses:
+  - Can provide more detail and follow-up messages than needed under tight deadlines.
+  - Analysis can be more detailed than needed under tight deadlines.
+  - May send multiple follow-up messages unless scope and reporting format are constrained.
+  - Analysis can be more detailed than needed under tight deadlines unless conclusions
+    are prioritized.
+  - May provide follow-up detail when a compact report would suffice.
+developer:
+  communication_style: Concise progress updates with quick confirmation of targeted
+    fixes.
+  notes:
+  - Handles broad cross-cutting features competently, including wiring and compatibility
+    concerns.
+  - Works best from a single prioritized implementation contract and explicit acceptance
+    checklist.
+  - Works best from a prioritized implementation contract with explicit acceptance
+    and cleanup checks.
+  - Handles ambiguous extension points well when given repository-grounded routing
+    evidence.
+  - Works best from a consolidated implementation map and explicit final checklist.
+  - Performs best when canonical runtime wiring and compatibility requirements are
+    identified early.
+  - Performs best with canonical runtime wiring and exact contracts identified before
+    implementation cutoff.
+  - Benefits from one prioritized acceptance checklist and a final independent verification
+    pass.
+  - Performs best when canonical runtime wiring and exact endpoint/schema contracts
+    are identified early.
+  - Benefits from a single prioritized acceptance checklist followed by one final
+    verification pass.
+  - Performs best when integration contracts and edge-case semantics are supplied
+    early, followed by one final verification pass.
+  - Performs best with one prioritized implementation contract, canonical runtime
+    path, and final checklist.
+  - Performs best when endpoint/schema contracts and canonical runtime wiring are
+    identified early, followed by one final verification pass.
+  - Performs best with a single prioritized implementation contract, explicit canonical
+    runtime path, and one final verification pass.
+  - Strong at rapid integration when endpoint/schema contracts and compatibility requirements
+    are locked early.
+  - Performs best with one prioritized contract, explicit canonical runtime path,
+    and a fixed final verification checklist.
+  - Works best when endpoint/schema contracts and canonical runtime wiring are identified
+    early.
+  - Strong at rapid integration after one consolidated evidence pass.
+  - Performs best when canonical paths and exact helper contracts are identified before
+    implementation cutoff.
+  - Performs best with one prioritized contract and final checklist covering exact
+    fields, route status/error behavior, exports, and fallback paths.
+  - Performs best when canonical runtime path, compatibility constraints, and exact
+    acceptance contracts are identified early.
+  - Performs best when exact contracts and canonical runtime paths are identified
+    early, followed by one final verification pass.
+  reliability: high
+  strengths:
+  - Quickly translates repository findings into concrete implementation changes.
+  - Coordinates effectively with multiple specialists and incorporates review feedback.
+  - Integrates repository findings into coherent cross-module implementations quickly.
+  - Responds constructively to review and verification feedback.
+  - Communicates concise implementation status and coordinates effectively.
+  - Rapidly integrates repository evidence into coherent cross-module implementations.
+  - Quickly translates routing and contract requirements into concrete changes.
+  - Responds constructively to verification feedback and cleans generated artifacts.
+  - Coordinates effectively across configuration, middleware, persistence, and application
+    wiring.
+  - Translates repository findings into coherent cross-module implementations.
+  - Integrates routing, configuration, validation, and compatibility concerns effectively.
+  - Responds constructively to focused verification feedback.
+  - Integrates multi-agent code evidence into coherent implementation changes across
+    modules.
+  - Quickly translates repository findings into concrete implementation artifacts.
+  - Communicates concise progress updates and responds constructively to verification
+    feedback.
+  - Quickly translates requirements into concrete schema, service, routing, and documentation
+    changes.
+  - Responds constructively to focused verification feedback and performs syntax/artifact
+    checks.
+  - Integrates multi-agent repository evidence into coherent cross-module implementations
+    quickly.
+  - Handles routing, configuration, persistence, schemas, and documentation wiring
+    effectively.
+  - Responds constructively to focused verification and compatibility feedback.
+  - Communicates concise implementation status and targeted follow-up requests.
+  - Integrates cross-module repository evidence into coherent implementation artifacts
+    quickly.
+  - Handles routing, configuration, persistence, schemas, and documentation wiring
+    competently.
+  - Responds constructively and promptly to focused contract or verification feedback.
+  - Performs syntax and artifact-cleanup checks near completion.
+  - Integrates repository evidence into coherent cross-module implementations across
+    routing, schemas, services, persistence, configuration, and documentation.
+  - Responds constructively and quickly to focused verification feedback, performing
+    syntax and artifact-cleanup checks.
+  - Communicates concise implementation status and handles ambiguous extension points
+    effectively when canonical paths are identified.
+  - Handles routing, schemas, services, persistence, configuration, and documentation
+    wiring competently.
+  - Responds constructively and promptly to focused verification or compatibility
+    feedback.
+  - Rapidly integrates cross-module requirements across pipeline, streaming, and configuration
+    layers.
+  - Responds constructively to focused verification findings and performs syntax/artifact
+    cleanup.
+  - Preserves existing interfaces while adding helper contracts and lifecycle wiring.
+  - Integrates broad cross-file features quickly across models, services, persistence,
+    and API routes.
+  - Responds constructively to concise contract corrections and performs cleanup/static
+    verification.
+  - Handles configuration, model/schema, strategy, routing, and export wiring effectively.
+  - Responds constructively to focused contract corrections and performs syntax/artifact
+    cleanup.
+  weaknesses:
+  - Can benefit from stricter time-boxing to avoid prolonged integration cycles under
+    hard deadlines.
+  - Can spend too long iterating and coordinating when requirements span many layers.
+  - Can spend too long iterating when requirements span multiple architectural layers.
+  - Benefits from an early minimum-viable target, consolidated feedback, and a strict
+    implementation cutoff.
+  - Can iterate too long when requirements span multiple architectural layers; benefits
+    from an early prioritized contract.
+  - May initially overlook exact response-schema or duplicate-entry-point details
+    unless acceptance criteria are reiterated.
+  - May initially overlook exact contract details when repository contains divergent
+    or duplicate entry points.
+  - Benefits from a single prioritized acceptance checklist and explicit implementation
+    cutoff.
+  - May initially overlook exact acceptance fields, artifact names, or canonical-vs-duplicate
+    entrypoints in broad requirements.
+  - Can iterate too long when many incremental review inputs arrive; benefits from
+    a fixed cutoff and consolidated checklist.
+  - Can spend too long iterating when many incremental review inputs arrive; benefits
+    from a hard implementation cutoff.
+  - May initially overlook conflicting configuration aliases or exact acceptance details
+    in broad cross-cutting tasks.
+  - Benefits from a single prioritized checklist and explicit canonical entrypoint.
+  - May initially overlook exact contract fields or canonical duplicate entrypoints
+    in broad tasks.
+  - Can iterate too long when feedback arrives incrementally; benefits from a fixed
+    cutoff.
+  - May initially overlook exact acceptance literals, documentation placement, or
+    canonical-vs-legacy entrypoint distinctions in broad tasks.
+  - Benefits from a single prioritized checklist and explicit implementation cutoff
+    to avoid late iteration.
+  - May initially overlook exact acceptance literals, response fields, artifact names,
+    or canonical-vs-duplicate entrypoints in broad tasks.
+  - Can iterate or coordinate too long when requirements span many layers; benefits
+    from a hard implementation cutoff and consolidated checklist.
+  - May overlook exact acceptance fields, artifact names, or canonical duplicate entrypoints
+    without an explicit checklist.
+  - Can iterate too long when feedback arrives incrementally under tight deadlines.
+  - Under broad or ambiguous requirements, may initially overlook exact acceptance
+    fields, payload literals, or canonical versus duplicate entrypoints.
+  - Benefits from a single prioritized contract and explicit final checklist to avoid
+    late iteration.
+  - May initially overlook explicit shutdown/lifecycle details or exact return annotations
+    until final checklist review.
+  - Benefits from one consolidated acceptance checklist to avoid late contract corrections.
+  - May need explicit reminders to distinguish retrieval-only versus generate-on-read
+    semantics and to export newly appended public ports.
+  - May initially overlook exact constructor/import/response contracts when duplicate
+    implementations or long requirements exist.
+  - Can iterate too long when feedback arrives incrementally; benefits from one consolidated
+    checklist and hard cutoff.
+  - May initially overlook exact hidden-test names, compatibility aliases, or canonical
+    duplicate entrypoints in broad tasks.
+planner:
+  communication_style: Brief, requirement-focused coordination messages.
+  notes:
+  - Effective at assigning repository exploration to specialized agents.
+  - Effective at surfacing hidden-test expectations and reconciling task wording with
+    repository structure.
+  - Works effectively with prioritized implementation maps and explicit edge-case
+    coverage.
+  - Most effective when reconnaissance is time-boxed and findings are consolidated
+    into one prioritized implementation map.
+  - Should identify canonical application wiring early and distinguish legacy or duplicate
+    paths.
+  - Most effective when reconnaissance is time-boxed and findings are consolidated
+    into one handoff.
+  - Works effectively with bounded reconnaissance and consolidated implementation
+    maps.
+  - Effective at surfacing hidden-test contract details and aligning agents on canonical
+    integration scope.
+  - Effective at surfacing confirmed requirements early so implementation can proceed
+    without exhaustive exploration.
+  reliability: high
+  strengths:
+  - Provides broad task decomposition and keeps agents aligned on requirements.
+  - Communicates useful prioritization across parallel workstreams.
+  - Clarifies full requirements and expected edge-case behavior early.
+  - Identifies architectural discrepancies and helps prioritize canonical runtime
+    paths.
+  - Coordinates specialists with concise, actionable requests.
+  - Delegates repository reconnaissance effectively and consolidates cross-agent findings.
+  - Keeps focus on requirement coverage and integration risks across files.
+  - Performs broad repository reconnaissance and identifies architectural entrypoints
+    and integration risks.
+  - Communicates concrete file/symbol evidence and requirement coverage.
+  - Coordinates effectively with implementation and verification agents.
+  - Produces structured repository decomposition and identifies canonical integration
+    points.
+  - Communicates concise, actionable findings to implementation and verification agents.
+  - Tracks requirement coverage across multiple files and entrypoints.
+  - Delegates targeted repository investigations and consolidates team progress effectively.
+  - Identifies canonical-vs-duplicate entrypoints and keeps work aligned with task
+    scope.
+  - Communicates succinctly and closes investigations once evidence is sufficient.
+  - Quickly identifies task-specific requirements and delegates focused repository
+    reconnaissance.
+  - Clarifies ambiguous requirements and consolidates findings across duplicate entrypoints.
+  - Communicates concise, actionable requests and integration priorities.
+  - Consolidates findings into actionable implementation direction across agents.
+  - Communicates concrete contract details and prioritization clearly.
+  weaknesses:
+  - Could reduce message frequency and converge earlier when evidence is already sufficient.
+  - May need explicit repository evidence to resolve competing entry points.
+  - Can involve multiple coordination rounds when architectural contracts are ambiguous.
+  - Benefits from early canonical-entrypoint identification and a fixed verification
+    checklist.
+  - Can spend too long exploring or sending incremental coordination messages when
+    an early bounded contract would suffice.
+  - May revisit already-established findings, increasing communication overhead under
+    hard time limits.
+  - May perform broad exploratory analysis before converging on a minimal implementation
+    contract.
+  - Can contribute to coordination overhead when repeated status exchanges occur.
+  - May rely on delegated findings for detailed contract reconciliation across divergent
+    documentation.
+  - May require follow-up clarification when task wording omits exact symbol or constructor
+    details.
+  - Can require follow-up when requirements depend on exact hidden-test naming or
+    ambiguous APIs.
+reader-1:
+  communication_style: Detailed, evidence-heavy technical summaries with concrete
+    snippets.
+  notes:
+  - Effective when given focused, non-overlapping file analysis tasks.
+  - Works best with clearly bounded, non-overlapping file groups and an explicit emphasis
+    on must-have findings.
+  - Works best with bounded file groups and explicit emphasis on must-have findings.
+  - Works best with bounded file groups, explicit must-have questions, and concise
+    deadlines.
+  reliability: high
+  strengths:
+  - Provides concrete source-level findings, interfaces, and integration implications.
+  - Produces detailed code-grounded summaries for assigned modules.
+  - Performs focused repository inspection and reports concrete source-level interfaces,
+    conventions, and integration implications.
+  - Identifies contract mismatches and duplicate or legacy implementations clearly.
+  - Communicates findings directly to implementers in technically actionable form.
+  - Handles focused non-overlapping file analysis effectively.
+  - Provides concrete source-level interface findings and code-grounded integration
+    implications.
+  weaknesses:
+  - Reports can be lengthy; prioritization of blocking findings improves efficiency.
+reader-2:
+  communication_style: Structured, information-dense technical updates.
+  notes:
+  - Works well with narrowly scoped reading questions and bounded file groups.
+  - Most effective with narrowly scoped reading questions and bounded file groups.
+  reliability: high
+  strengths:
+  - Performs focused repository inspection and identifies actionable integration points.
+  - Communicates implementation-relevant details clearly and thoroughly.
+  - Performs focused repository inspection across service, route, schema, GraphQL,
+    and gateway surfaces.
+  - Identifies canonical versus duplicate implementations and endpoint or payload
+    mismatches.
+  - Supplies actionable, structured integration findings.
+  weaknesses:
+  - Findings may be broad unless scope and prioritization are explicit.
+solution_verifier:
+  communication_style: Brief, checklist-oriented validation reports.
+  notes:
+  - Useful as a final lightweight gate for completeness and generated-artifact cleanup.
+  - Flags theoretical integration ambiguities while clearly indicating whether they
+    block acceptance.
+  - Strong final quality gate for cross-file API and middleware integrations.
+  - Strong final quality gate for cross-file integrations when supplied a consolidated
+    acceptance checklist.
+  - Valuable for final cross-file contract checks, especially exact metric names and
+    API semantics.
+  reliability: high
+  strengths:
+  - Performs independent checks of artifact placement, route interfaces, syntax, and
+    requirement coverage.
+  - Reports concise, actionable findings and distinguishes blocking from non-blocking
+    concerns.
+  - Verifies exact response contracts and integration wiring.
+  - Performs concise independent checks of artifact placement, syntax, route wiring,
+    exact contracts, and requirement coverage.
+  - Clearly distinguishes blocking integration issues from non-blocking architectural
+    caveats.
+  - Catches packaging artifacts, configuration mismatches, and silent route omission
+    risks.
+  - Performs concise independent checks of syntax, artifact placement, route/wiring,
+    and exact contracts.
+  - Catches subtle lifecycle, schema, and compatibility gaps and clearly distinguishes
+    blockers from caveats.
+  - Verifies generated-artifact cleanup and static compilation near finalization.
+  - Independently verifies artifact placement, exact model fields, route wiring, persistence
+    paths, and syntax.
+  - Identifies subtle integration caveats and distinguishes blockers from non-blocking
+    concerns.
+  weaknesses:
+  - Repeated review rounds can consume time under strict budgets.
+  - Most effective when given a fixed checklist and a single final verification pass.
+  - Most effective with a fixed checklist and one final verification pass; repeated
+    review rounds add overhead.
+  - Repeated review rounds add overhead; effectiveness is highest with a fixed final
+    checklist.
+  - Most effective with a fixed final checklist rather than repeated incremental review
+    rounds.

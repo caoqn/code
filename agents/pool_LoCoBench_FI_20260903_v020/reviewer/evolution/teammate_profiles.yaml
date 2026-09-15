@@ -1,0 +1,78 @@
+dependency_architect:
+  communication_style: Technical, evidence-based, and relatively thorough.
+  notes:
+  - Most effective when findings are prioritized by implementation impact.
+  reliability: high
+  strengths:
+  - Provides detailed dependency and interface analysis across modules.
+  - Identifies integration constraints and persistence-layer concerns.
+  weaknesses:
+  - Analysis can be more detailed than needed when budgets are tight.
+developer:
+  communication_style: Concise implementation updates with targeted requests for review.
+  notes:
+  - Benefits from early, prioritized review findings to limit iteration overhead.
+  - Works best from a compact architectural contract with exact interfaces and a short
+    verification checklist.
+  - Capable of incorporating broad reviewer and verifier input, but should converge
+    after must-have paths are covered.
+  - Performs best with a fixed implementation cutoff, canonical runtime path, and
+    one consolidated final verification pass.
+  reliability: high
+  strengths:
+  - Implements broad cross-file features and incorporates review feedback responsively.
+  - Communicates implementation status and coordinates with specialists.
+  - Integrates multi-agent code evidence into coherent cross-module implementations.
+  - Translates repository findings into concrete changes quickly and responds to review
+    feedback.
+  - Coordinates effectively across configuration, middleware, persistence, and application
+    wiring.
+  - Communicates implementation status and produces required solution artifacts.
+  - Integrates repository evidence into coherent cross-module implementations quickly.
+  - Handles routing, schemas, services, configuration, persistence, and documentation
+    wiring competently.
+  - Responds constructively to concrete review and verification findings.
+  - Performs syntax and artifact-cleanup checks near completion.
+  weaknesses:
+  - May use many incremental coordination messages when a consolidated update would
+    be more efficient.
+  - Can spend too long iterating and exchanging incremental status updates when requirements
+    span many layers.
+  - Benefits from an early minimum-viable target, consolidated feedback, and strict
+    time-boxing near deadlines.
+  - Broad tasks can lead to prolonged coordination and late iteration without a single
+    prioritized acceptance checklist.
+  - May initially overlook exact contract fields, artifact names, or canonical entrypoints
+    in repositories with parallel implementations.
+planner:
+  communication_style: Structured delegation with concise coordination updates.
+  notes:
+  - Would benefit from time-boxed planning and earlier convergence decisions.
+  - Most effective when exploration is time-boxed and verification criteria are fixed
+    early.
+  reliability: high
+  strengths:
+  - Coordinates multiple agents and decomposes complex tasks into focused workstreams.
+  - Tracks integration and verification status across contributors.
+  - Decomposes broad repository tasks into focused agent assignments.
+  - Coordinates architectural, implementation, and verification work across agents.
+  - Identifies canonical integration paths and acceptance requirements.
+  weaknesses:
+  - Coordination can become message-heavy under time pressure.
+  - Planning and coordination can become message-heavy under broad scope and hard
+    deadlines.
+  - Benefits from dispatching early and converging on one prioritized implementation
+    contract.
+reader-2:
+  communication_style: Structured, information-dense technical updates.
+  notes:
+  - Works best with narrowly scoped file groups and explicit must-have questions.
+  reliability: high
+  strengths:
+  - Performs focused repository inspection across service, route, schema, and gateway
+    surfaces.
+  - Identifies canonical versus duplicate implementations and endpoint/payload mismatches.
+  - Supplies actionable, code-grounded integration findings.
+  weaknesses:
+  - Findings may be broad under tight budgets; prioritization of blockers improves
+    efficiency.

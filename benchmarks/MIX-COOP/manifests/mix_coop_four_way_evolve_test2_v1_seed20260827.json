@@ -1,0 +1,415 @@
+{
+  "schema_version": 1,
+  "suite_id": "mix-coop-four-way-evolve-test2-v1-seed20260827",
+  "active_benchmarks": [
+    "locobench",
+    "locabench",
+    "gaia",
+    "beyondswe"
+  ],
+  "description": "Four-way MIX-COOP pilot smoke: two evolve and two frozen-test tasks per benchmark, stratified round-robin.",
+  "ordering": {
+    "strategy": "stratified_round_robin",
+    "seed": 20260827,
+    "round_unit": "one task per source benchmark",
+    "shuffle_within_round": false,
+    "shuffle_scope": "evolve",
+    "materialized_order": true,
+    "order_hash": "61ad787909779456e990af1ad0175b09bafc58236f925b79a2844a4c6e1c798c"
+  },
+  "shared_evolution": {
+    "mode": "single_team_workspace",
+    "team_name": "pool_MIX_COOP",
+    "state_root": "agents/pool_MIX_COOP",
+    "require_common_agent_namespace": true,
+    "shared_artifacts": [
+      "templates.json",
+      "handoff_rules.json",
+      "constitution.md",
+      "pool.yaml",
+      "*/evolution/prompt_patches.md",
+      "*/evolution/teammate_profiles.yaml",
+      "*/skills/**"
+    ],
+    "evolution_policy": {
+      "evolve_phase": "sequential_updates_after_each_successfully_evaluated_task",
+      "test_phase": "frozen_read_only_snapshot"
+    }
+  },
+  "isolation_policy": {
+    "selector_visible_fields": [
+      "native_full_task",
+      "normalized_collaboration_evidence",
+      "family_catalog"
+    ],
+    "selector_hidden_fields": [
+      "mix_task_id",
+      "source_benchmark",
+      "source_split",
+      "source_task_id",
+      "source_index",
+      "adapter_module",
+      "native_evaluator",
+      "hidden_annotations"
+    ],
+    "native_components": [
+      "tool_environment",
+      "task_construction",
+      "output_contract",
+      "artifact_collection",
+      "evaluator"
+    ],
+    "score_policy": "retain_native_score_and_compute_cross-suite_metrics_only_during_aggregation"
+  },
+  "benchmark_bindings": {
+    "locobench": {
+      "adapter_module": "benchmarks.adapter_locobench",
+      "adapter_class": "LoCoBenchAdapter",
+      "task_construction": "LoCoBenchAdapter.build_task",
+      "native_environment": "isolated solution workspace and native scenario context",
+      "execution_policy": "long_context_solution_workspace",
+      "execution_policy_version": "1",
+      "output_contract": "locobench_solution_summary",
+      "submission_type": "solution_files_plus_completion_summary",
+      "native_evaluator": "LoCoBenchAdapter.evaluate",
+      "native_allowed_tools": [
+        "read_file",
+        "write_file",
+        "bash"
+      ]
+    },
+    "locabench": {
+      "adapter_module": "benchmarks.adapter_locabench",
+      "adapter_class": "LOCABenchAdapter",
+      "task_construction": "LOCABenchAdapter.build_task",
+      "native_environment": "per-case LOCA MCP services and isolated local_db workspace",
+      "execution_policy": "stateful_service_operations",
+      "execution_policy_version": "2",
+      "output_contract": "locabench_completion_summary",
+      "submission_type": "verified_environment_state_plus_completion_summary",
+      "native_evaluator": "LOCABenchAdapter.evaluate",
+      "native_allowed_tools": [
+        "read_file",
+        "write_file",
+        "bash",
+        "loca_mcp"
+      ]
+    },
+    "gaia": {
+      "adapter_module": "benchmarks.adapter_gaia",
+      "adapter_class": "GAIAAdapter",
+      "task_construction": "GAIAAdapter.build_task",
+      "native_environment": "GAIA attachment workspace and retrieval tools",
+      "execution_policy": "knowledge_question_with_optional_attachment",
+      "execution_policy_version": "1",
+      "output_contract": "gaia_short_answer",
+      "submission_type": "strict_short_answer",
+      "native_evaluator": "GAIAAdapter.evaluate",
+      "native_allowed_tools": [
+        "read_file",
+        "write_file",
+        "bash",
+        "web_search",
+        "web_fetch"
+      ]
+    },
+    "beyondswe": {
+      "adapter_module": "benchmarks.adapter_beyondswe",
+      "adapter_class": "BeyondSWEAdapter",
+      "task_construction": "BeyondSWEAdapter.build_task",
+      "native_environment": "per-case Docker repository environment",
+      "execution_policy": "isolated_repository_patch",
+      "execution_policy_version": "1",
+      "output_contract": "beyondswe_patch_summary",
+      "submission_type": "repository_patch_plus_fix_summary",
+      "native_evaluator": "BeyondSWEAdapter.evaluate",
+      "native_allowed_tools": [
+        "read_file",
+        "docker_bash",
+        "docker_str_replace_editor"
+      ]
+    }
+  },
+  "tasks": [
+    {
+      "mix_task_id": "mix-evolve-extra-locabench",
+      "phase": "evolve",
+      "order": 2,
+      "source": {
+        "benchmark": "locabench",
+        "split": "evolve_96k",
+        "task_id": "ApplyPhDEmailS2LEnv_seed102",
+        "source_index": 1,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [],
+        "difficulty": "",
+        "notes": "Labels intentionally left unassigned until human annotation."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-001-gaia",
+      "phase": "evolve",
+      "order": 1,
+      "source": {
+        "benchmark": "gaia",
+        "split": "train_20",
+        "task_id": "4fc2f1ae-8625-45b5-ab34-ad4433bc21f8",
+        "source_index": 0,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [],
+        "difficulty": "",
+        "notes": "Labels intentionally left unassigned until human annotation."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-003-beyondswe",
+      "phase": "evolve",
+      "order": 0,
+      "source": {
+        "benchmark": "beyondswe",
+        "split": "crossrepo",
+        "task_id": "pylons_plaster_pastedeploy_pr14",
+        "source_index": 0,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [],
+        "difficulty": "",
+        "notes": "Labels intentionally left unassigned until human annotation."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-extra-locobench",
+      "phase": "evolve",
+      "order": 3,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_api_gateway_hard_009_feature_implementation_expert_01",
+        "source_index": 1,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [],
+        "difficulty": "hard",
+        "notes": "Labels intentionally left unassigned until human annotation."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-extra-beyondswe",
+      "phase": "evolve",
+      "order": 4,
+      "source": {
+        "benchmark": "beyondswe",
+        "split": "crossrepo",
+        "task_id": "pylons_pyramid_pr1373",
+        "source_index": 1,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [],
+        "difficulty": "",
+        "notes": "Labels intentionally left unassigned until human annotation."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-000-locobench",
+      "phase": "evolve",
+      "order": 7,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_api_gateway_expert_045_feature_implementation_hard_01",
+        "source_index": 0,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [],
+        "difficulty": "hard",
+        "notes": "Labels intentionally left unassigned until human annotation."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-002-locabench",
+      "phase": "evolve",
+      "order": 6,
+      "source": {
+        "benchmark": "locabench",
+        "split": "evolve_96k",
+        "task_id": "ApplyPhDEmailS2LEnv_seed101",
+        "source_index": 0,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [],
+        "difficulty": "",
+        "notes": "Labels intentionally left unassigned until human annotation."
+      }
+    },
+    {
+      "mix_task_id": "mix-evolve-extra-gaia",
+      "phase": "evolve",
+      "order": 5,
+      "source": {
+        "benchmark": "gaia",
+        "split": "train_20",
+        "task_id": "cffe0e32-c9a6-4c52-9877-78ceb4aaa9fb",
+        "source_index": 1,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [],
+        "difficulty": "",
+        "notes": "Labels intentionally left unassigned until human annotation."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-000-locobench",
+      "phase": "test",
+      "order": 3,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_etl_expert_011_feature_implementation_hard_01",
+        "source_index": 20,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [],
+        "difficulty": "hard",
+        "notes": "Holdout index follows the existing LoCoBench paper split."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-001-gaia",
+      "phase": "test",
+      "order": 1,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "6f37996b-2ac7-44b0-8e68-6d28256631b4",
+        "source_index": 0,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [],
+        "difficulty": "",
+        "notes": "Native GAIA holdout split."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-002-locabench",
+      "phase": "test",
+      "order": 2,
+      "source": {
+        "benchmark": "locabench",
+        "split": "128k",
+        "task_id": "CanvasArrangeExamS2LEnv_seed42",
+        "source_index": 0,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [],
+        "difficulty": "",
+        "notes": "Native 128k evaluation configuration."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-003-beyondswe",
+      "phase": "test",
+      "order": 0,
+      "source": {
+        "benchmark": "beyondswe",
+        "split": "crossrepo",
+        "task_id": "pylons_colander_pr304",
+        "source_index": 20,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [],
+        "difficulty": "",
+        "notes": "Holdout index follows the existing BeyondSWE paper split."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-extra-beyondswe",
+      "phase": "test",
+      "order": 4,
+      "source": {
+        "benchmark": "beyondswe",
+        "split": "crossrepo",
+        "task_id": "aboutcode-org_saneyaml_pr15",
+        "source_index": 21,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [],
+        "difficulty": "",
+        "notes": "Holdout index follows the existing BeyondSWE paper split."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-extra-gaia",
+      "phase": "test",
+      "order": 5,
+      "source": {
+        "benchmark": "gaia",
+        "split": "test_100",
+        "task_id": "a0c07678-e491-4bbc-8f0b-07405144218f",
+        "source_index": 1,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [],
+        "difficulty": "",
+        "notes": "Native GAIA holdout split."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-extra-locabench",
+      "phase": "test",
+      "order": 6,
+      "source": {
+        "benchmark": "locabench",
+        "split": "128k",
+        "task_id": "CanvasArrangeExamS2LEnv_seed123",
+        "source_index": 1,
+        "adapter_args": {}
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [],
+        "difficulty": "",
+        "notes": "Native 128k evaluation configuration."
+      }
+    },
+    {
+      "mix_task_id": "mix-test-extra-locobench",
+      "phase": "test",
+      "order": 7,
+      "source": {
+        "benchmark": "locobench",
+        "split": "python",
+        "task_id": "python_data_etl_expert_083_feature_implementation_easy_01",
+        "source_index": 21,
+        "adapter_args": {
+          "category": "feature_implementation"
+        }
+      },
+      "hidden_annotations": {
+        "collaboration_profile": [],
+        "difficulty": "hard",
+        "notes": "Holdout index follows the existing LoCoBench paper split."
+      }
+    }
+  ]
+}

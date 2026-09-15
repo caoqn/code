@@ -1,0 +1,354 @@
+answer_agent:
+  communication_style: Concise and format-aware, requesting missing contract details
+    when needed.
+  notes:
+  - Send one complete handoff containing artifact paths, requirements covered, and
+    verification status.
+  - Returns the required final-output format promptly when given implementation evidence.
+  - Responsive to implementation and verification summaries when preparing final output.
+  - Benefits from explicit canonical artifact lists and test/verification status.
+  - Benefits from explicit request to include the required output prefix and canonical
+    file list.
+  - Effectively consolidates artifact paths and test verification into a final response.
+  - Reliably consolidates implementation evidence and verification results into final
+    output.
+  - Follows exact FINAL OUTPUT formatting when prompted.
+  - Reliably waits for implementation and verification evidence before finalizing.
+  - Requests canonical artifact and test status when final evidence is ambiguous.
+  - Final output is strongest when provided exact paths and static verification status.
+  - Reliably returns the required prefixed final output when given complete implementation
+    and verification details.
+  - Requires exact final wording match to submit successfully.
+  reliability: high
+  strengths:
+  - Converts implementation and verification evidence into a concise final completion
+    summary.
+  - Follows required output prefix and submission contract when provided complete
+    inputs.
+  - Produces concise final summaries that accurately reflect implemented and verified
+    artifacts.
+  - Produces concise completion summaries with required FINAL OUTPUT prefix.
+  - Tracks artifact presence and verification evidence.
+  - Produces concise completion summaries with artifact paths and verification status.
+  - Follows required FINAL OUTPUT formatting.
+  - Produces concise completion summaries aligned with artifact paths and verification
+    evidence.
+  - Follows exact FINAL OUTPUT formatting when prompted.
+  - Produces concise final completion summaries when given implementation evidence
+    and verification results.
+  - Produces concise completion summaries that follow required output prefixes.
+  - Produces concise final summaries matching required output contract.
+  - Accurately relays implementation and verification status.
+  - Produces concise final completion summaries with required prefix and verification
+    evidence.
+  - Accurately reflects artifact paths and acceptance coverage.
+  - Produces concise final completion summaries with required prefix.
+  - Confirms artifact paths and verification status before submission.
+  - Requests explicit canonical file listings when needed for final reporting.
+  - Produces concise final completion summaries adhering to required output prefixes.
+  - Integrates artifact paths, implementation evidence, and verification status into
+    clear final responses.
+  - Produces concise final completion summaries in the required format.
+  - Accurately reflects artifact paths and verification status when provided a canonical
+    report.
+  weaknesses:
+  - Effectiveness depends on receiving a timely, consolidated handoff rather than
+    fragmented updates.
+dependency_architect:
+  communication_style: Thorough architectural analysis with iterative clarifications
+  notes:
+  - Most valuable when scope and reporting format are constrained up front.
+  - Most effective with a narrowly defined dependency question and a single concise
+    report deadline.
+  - Most valuable when analyzing compatibility between new feature code and legacy
+    service contracts.
+  - Most valuable when scope and reporting format are constrained up front; may provide
+    multiple follow-up messages otherwise.
+  reliability: high
+  strengths:
+  - Traces cross-module dependencies and interface propagation.
+  - Highlights architectural compatibility risks.
+  - Traces cross-module dependencies, interfaces, and propagation risks.
+  - Highlights architectural compatibility concerns.
+  - Highlights architectural compatibility concerns between new features and legacy
+    contracts.
+  weaknesses:
+  - May provide multiple follow-up messages, increasing coordination overhead.
+  - May send multiple follow-up messages if scope and format are not constrained.
+  - May provide multiple follow-up messages if scope and reporting format are not
+    constrained.
+developer:
+  communication_style: Concise, implementation-focused updates with targeted confirmations.
+  notes:
+  - Benefits from an early time-box and a clear minimum viable implementation target.
+  - Performs best with a clear implementation cutoff and permission to proceed on
+    core evidence before optional reviews.
+  - Benefits from an early time-box, explicit canonical entrypoint identification,
+    and a minimum viable implementation target.
+  - Performs best with an explicit compatibility checklist and implementation cutoff.
+  - Benefits from an early compatibility checklist covering duplicate implementations
+    and exact acceptance details.
+  - Performs best with an explicit compatibility checklist, canonical entrypoint,
+    minimum viable target, and hard implementation cutoff.
+  - Performs well with explicit compatibility and artifact-cleanup checklists.
+  - Performs best with an explicit implementation cutoff, canonical entrypoint, and
+    compatibility checklist.
+  - Benefits from a minimum viable implementation target and permission to proceed
+    on core evidence.
+  - Benefits from explicit canonical entrypoint, compatibility checklist, and hard
+    implementation cutoff.
+  - Can initially overlook minimal-scope cleanup or exact acceptance literals, but
+    corrects promptly when flagged.
+  - Performs best with a fixed implementation cutoff, canonical entrypoint identification,
+    and compatibility checklist.
+  - Agreed to proceed after one sufficient evidence round and avoid non-blocking clarification
+    loops.
+  - Performs best with explicit preservation checklist, canonical entrypoint, and
+    hard cutoff.
+  - Performs best with explicit acceptance checklist and hard implementation cutoff.
+  - Performs best with an explicit cutoff, canonical entrypoint, minimum viable target,
+    and compatibility checklist.
+  - Benefits from an explicit checklist enumerating every named deliverable, including
+    tests and docs.
+  reliability: high
+  strengths:
+  - Integrates multi-agent code evidence into a coherent implementation.
+  - Communicates progress clearly and produces required solution artifacts.
+  - Integrates evidence from multiple agents into coherent implementation.
+  - Produces solution artifacts and gives concise progress updates.
+  - Integrates routing and documentation changes into complete solution artifacts.
+  - Responds quickly to concrete correction requests and verifies syntax.
+  - Integrates multi-agent code evidence into coherent implementations across modules.
+  - Produces solution artifacts quickly and responds to concrete correction requests.
+  - Communicates concise progress updates and verifies syntax.
+  - Integrates multi-agent code evidence into coherent implementations across model,
+    service, and REST layers.
+  - Produces complete solution artifacts quickly and verifies syntax.
+  - Responds promptly to concrete compatibility and requirement corrections.
+  - Communicates progress clearly and produces complete solution artifacts quickly.
+  - Integrates multi-agent evidence into coherent implementations across model, service,
+    REST, auditing, and documentation layers.
+  - Integrates multi-agent code evidence into coherent multi-file implementations
+    quickly.
+  - Responds promptly to concrete requirement corrections and verifies syntax.
+  - Responds promptly to concrete requirement and compatibility corrections.
+  - Integrates evidence into complete multi-file implementations quickly.
+  - Responds promptly to concrete compatibility and preservation feedback.
+  - Verifies syntax and cleans generated artifacts when asked.
+  - Responds promptly to concrete compatibility and exact-literal corrections.
+  - Produces solution artifacts quickly and communicates concise progress updates.
+  - Verifies syntax and can clean generated artifacts when reminded.
+  - Integrates multi-file feature changes quickly while preserving existing interfaces.
+  - Responds promptly to concrete compatibility and exact-literal feedback.
+  - Performs static syntax checks and artifact cleanup when prompted.
+  weaknesses:
+  - Can spend too long iterating when many review inputs arrive.
+  - Can iterate too long when receiving many review messages or late feedback.
+  - May initially overlook an exact response-schema field unless acceptance criteria
+    are reiterated.
+  - May initially target a duplicate or non-canonical integration point when repository
+    has parallel app entrypoints.
+  - May initially replace or simplify an existing service/schema instead of preserving
+    established interfaces.
+  - May overlook exact acceptance names or fields until explicitly reiterated.
+  - May initially miss an explicit test filename or exact service-layer exception
+    requirement when parallel abstractions exist.
+  - May initially overlook exact response-schema fields or explicit filenames when
+    requirements are lengthy.
+  - Can iterate too long when receiving many review inputs or late feedback.
+  - May initially miss canonical wiring or exact packaging/documentation placement
+    in repositories with duplicate entrypoints.
+  - May initially overlook exact response-schema fields or canonical wiring in repositories
+    with parallel entrypoints.
+  - May initially overlook exact acceptance literals such as response body text.
+  - May iterate too long when receiving multiple late review messages.
+  - Can initially overlook exact acceptance literals or canonical wiring in parallel
+    entrypoints.
+  - May initially rewrite or compress existing modules and omit integration paths
+    when requirements are ambiguous.
+  - May need explicit reminders to make cryptographic helper behavior fully operational
+    rather than metadata-only.
+  - May initially overlook exact sentinel values or fully wire validation into the
+    canonical processing path.
+  - May initially overlook exact acceptance literals, canonical wiring, or small packaging
+    details in repositories with parallel entrypoints.
+  - Can iterate too long when receiving many late review inputs.
+  - May initially overlook explicitly requested test artifacts or packaging details
+    when hidden tests seem sufficient.
+  - Can introduce presentation artifacts (such as markdown fences) requiring cleanup.
+feature_integrator:
+  communication_style: Detailed requirement-to-code analysis with occasional clarification
+    questions.
+  notes:
+  - Useful for complex feature work when asked to emphasize must-have paths first.
+  - Ask for must-have paths first and defer optional considerations under tight budgets.
+  - Particularly useful for detecting duplicate or legacy entrypoints that could otherwise
+    receive incomplete integration.
+  - Particularly useful for detecting duplicate or legacy entrypoints and compatibility
+    risks.
+  - Guidance can become extensive and needs prioritization under tight budgets.
+  - Particularly useful for repositories with parallel application factories.
+  - Particularly useful for detecting parallel application factories and integration
+    risks; ask for must-have paths first.
+  - Effective at detecting canonical versus legacy application wiring and compatibility
+    concerns.
+  - Particularly useful for detecting canonical versus legacy application wiring and
+    compatibility concerns.
+  - Most useful when asked to prioritize must-have paths and exact acceptance behavior.
+  - Guidance is useful when scope and must-have behavior are explicitly prioritized.
+  - Needs exact requirements restated when initial task context is broad; guidance
+    should be prioritized to must-have paths under tight budgets.
+  reliability: medium
+  strengths:
+  - Maps feature requirements to implementation and integration surfaces.
+  - Identifies feature completeness considerations.
+  - Identifies completeness and edge-case considerations.
+  - Maps feature requirements to routing and documentation integration surfaces.
+  - Provides detailed requirement-to-code analysis when scope is explicit.
+  - Maps feature requirements to implementation and integration surfaces, including
+    routing and schema entrypoints.
+  - Maps feature requirements to implementation and integration surfaces across parallel
+    service abstractions.
+  - Identifies completeness and edge-case considerations in detailed guidance.
+  - Identifies completeness and edge-case considerations, including routing and schema
+    entrypoints.
+  - Identifies completeness, edge cases, routing, schema, and documentation considerations.
+  - Maps requirements across integration surfaces and identifies duplicate entrypoints
+    and compatibility risks.
+  - Provides detailed architectural guidance and edge-case considerations.
+  - Maps feature requirements to implementation and integration surfaces across service,
+    routing, schema, and documentation layers.
+  - Identifies completeness, edge cases, and duplicate entrypoints.
+  - Maps feature requirements to implementation, routing, schema, and documentation
+    surfaces.
+  - Identifies duplicate entrypoints and integration risks.
+  - Provides detailed architectural and edge-case guidance when scope is explicit.
+  - Identifies duplicate entrypoints, integration risks, and edge cases.
+  - Provides detailed architectural guidance when scope is explicit.
+  - Maps requirements across implementation and integration surfaces.
+  - Identifies duplicate entrypoints and compatibility risks.
+  - Raises edge cases and hidden-test concerns.
+  - Identifies duplicate entrypoints, edge cases, and compatibility risks.
+  - Maps requirements across implementation, routing, schema, and documentation surfaces.
+  - Maps requirements across models, services, routing, schemas, and documentation.
+  - Identifies duplicate entrypoints, compatibility risks, and edge cases.
+  weaknesses:
+  - Can generate extensive guidance that needs prioritization under tight budgets.
+  - Guidance can become extensive and require prioritization.
+  - May need requirements restated before producing targeted findings, leading to
+    communication overhead.
+  - Guidance can become extensive and may require prioritization under tight budgets.
+  - May need exact requirements restated before producing highly targeted findings.
+  - Can require requirement restatement before producing targeted findings.
+  - Guidance may be extensive and need prioritization under time limits.
+reader-1:
+  communication_style: Detailed technical summaries with code evidence
+  notes:
+  - Effective for focused, non-overlapping file analysis.
+  - Direct reporting to the implementer works well and reduces relay overhead.
+  - Effectively identifies scaffold inconsistencies and missing modules that affect
+    integration.
+  - Effective for focused file groups and identifying scaffold inconsistencies or
+    missing integration modules.
+  - Focused file assignments and concise deadlines maximize effectiveness.
+  reliability: high
+  strengths:
+  - Provides concrete source-level findings and interface details.
+  - Reports directly to implementer as requested.
+  - Provides concrete source-level findings and relevant code evidence.
+  - Handles focused, non-overlapping file assignments effectively.
+  - Handles focused, non-overlapping file analysis effectively.
+  - Reports directly to implementer with detailed evidence.
+  - Reports directly to the implementer with detailed summaries.
+  weaknesses: []
+reader-2:
+  communication_style: Structured technical summaries.
+  notes:
+  - Works well when assigned a clearly bounded file group.
+  - Clearly bounded file groups and concise deadlines help maintain efficiency.
+  - Good at identifying endpoint and payload inconsistencies across microservices.
+  reliability: high
+  strengths:
+  - Performs focused repository inspection and identifies integration points.
+  - Supplies actionable evidence to the implementer.
+  - Supplies structured, evidence-heavy reports.
+  - Performs focused repository inspection across service routes and schemas.
+  - Supplies structured, evidence-heavy integration findings.
+  weaknesses: []
+reviewer:
+  communication_style: Concise issue-oriented feedback with suggested fixes.
+  notes:
+  - Review should be time-boxed and focused on blocking defects.
+  - Best engaged once with a fixed checklist and a strict review cutoff.
+  reliability: high
+  strengths:
+  - Checks implementations against interfaces and task requirements.
+  - Finds potential correctness and compatibility issues.
+  - Checks implementations against interfaces, invariants, and requirements.
+  - Finds blocking correctness and compatibility issues.
+  weaknesses:
+  - Repeated review rounds can consume substantial time.
+  - Multiple review rounds can consume substantial time.
+solution_verifier:
+  communication_style: Brief, checklist-oriented validation reports focused on concrete
+    blockers.
+  notes:
+  - Best used near finalization with a fixed verification checklist.
+  - Should run near finalization with a fixed verification checklist rather than repeated
+    status checks.
+  - Effective near finalization with a fixed checklist; catches syntax and canonical
+    wiring issues missed during implementation.
+  - Effective at catching exact schema naming mismatches and missing compatibility
+    fields near finalization.
+  - Effective near finalization with a fixed checklist; catches schema and wiring
+    issues missed during implementation.
+  - Most effective near finalization with a fixed acceptance checklist rather than
+    repeated status checks.
+  - Effective near finalization when given a fixed acceptance checklist.
+  - Most effective near finalization with a fixed acceptance checklist.
+  - Effective at catching missing end-to-end verification paths and metadata handling
+    gaps.
+  - Most effective when given a fixed acceptance checklist near finalization.
+  - Most effective when given a fixed acceptance checklist and explicit artifact manifest
+    near finalization.
+  reliability: high
+  strengths:
+  - Verifies artifact placement and requirement coverage.
+  - Performs independent consistency checks.
+  - Verifies artifact placement, interfaces, and requirement coverage.
+  - Provides brief validation reports.
+  - Independently verifies artifact placement, route prefixes, exact payloads, and
+    documentation coverage.
+  - Performs static compilation and identifies non-blocking packaging concerns.
+  - Verifies artifact placement, interfaces, route prefixes, exact payloads, and requirement
+    coverage.
+  - Performs static compilation and independent consistency checks.
+  - Identifies integration caveats and packaging issues before finalization.
+  - Verifies artifact placement, interfaces, exact payload fields, and requirement
+    coverage.
+  - Flags blockers clearly and concisely.
+  - Independently verifies artifact placement, interfaces, exact response fields,
+    route reachability, and requirement coverage.
+  - Performs static compilation checks and flags packaging artifacts or compatibility
+    issues clearly.
+  - Independently verifies artifact placement, interfaces, route reachability, exact
+    payload fields, and requirement coverage.
+  - Performs static compilation and flags packaging or compatibility issues clearly.
+  - Independently verifies artifact placement, interfaces, exact payloads, headers,
+    and requirement coverage.
+  - Performs static compilation checks and flags blockers clearly.
+  - Uses concise checklist-oriented validation reports.
+  - Independently verifies artifact placement, interfaces, exact literals, and syntax.
+  - Flags integration gaps and robustness concerns clearly.
+  - Performs concise checklist-oriented reviews near finalization.
+  - Independently verifies artifact placement, exact literals, interfaces, cleanup,
+    and syntax.
+  - Independently verifies artifact placement, interfaces, exact literals, syntax,
+    and requirement coverage.
+  - Performs concise checklist-oriented validation and flags blockers clearly.
+  - Catches route reachability, schema mismatches, cleanup, and packaging issues near
+    finalization.
+  - Performs concise static checks of artifact placement, interfaces, exact fields,
+    and syntax.
+  - Flags non-blocking gaps and compatibility concerns clearly.
+  weaknesses: []
