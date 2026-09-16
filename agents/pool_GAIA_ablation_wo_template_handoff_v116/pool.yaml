@@ -1,0 +1,18 @@
+chairman: planner
+settings:
+  max_seconds: 1800
+  effective_task_seconds: 1200
+  wall_clock_seconds: 3000
+  max_messages: 500
+  reflection_phase_timeout: 600
+  team_selection_enabled: false
+  handoff_rules_enabled: false
+  # The Chairman uses member profiles when deciding whom to recruit. Workers
+  # never receive or write teammate profiles; they coordinate through their
+  # own outgoing family handoff rules instead.
+  chairman_teammate_profiles_enabled: true
+  member_teammate_profiles_enabled: false
+  answer_agent: answer_agent
+  answer_agent_required: true
+  # Deliberately omit answer_protocol: the native adapter supplies the
+  # benchmark-specific OutputContract for each MIX-COOP task.
